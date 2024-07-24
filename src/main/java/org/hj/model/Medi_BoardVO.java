@@ -15,7 +15,7 @@ public class Medi_BoardVO {
     private int mediSafetyInven;
 
 
-
+ 
     // Getters and Setters
     public int getMediNo() {
         return mediNo;

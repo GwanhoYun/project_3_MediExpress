@@ -17,7 +17,7 @@ public class Medi_BoardServiceImpl implements Medi_BoardService {
         return mediBoardMapper.getAllMediProducts();
     }
     
-    //작성한 리스트 저장
+    //작성한 리스트 저장 
     @Override
     public void saveAllMediProducts(List<Medi_BoardVO> mediProducts) {
         // 여기서 데이터 저장 로직을 구현

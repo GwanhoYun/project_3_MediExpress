@@ -10,3 +10,4 @@ public interface Medi_BoardService {
     void updateMediProduct(Medi_BoardVO mediProduct);
     void deleteMediProducts(List<Medi_BoardVO> mediProducts);
 }
+ 

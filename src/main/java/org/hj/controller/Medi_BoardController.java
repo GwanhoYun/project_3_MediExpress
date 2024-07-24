@@ -16,7 +16,7 @@ public class Medi_BoardController {
     @Autowired
     private Medi_BoardService mediBoardService;
 
-    
+     
     @GetMapping
     public String getProductList(Model model) {
         List<Medi_BoardVO> mediProducts = mediBoardService.getAllMediProducts();

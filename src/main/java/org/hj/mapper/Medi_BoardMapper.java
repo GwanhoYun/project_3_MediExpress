@@ -14,4 +14,4 @@ public interface Medi_BoardMapper {
     
 }
 
- 
+  
