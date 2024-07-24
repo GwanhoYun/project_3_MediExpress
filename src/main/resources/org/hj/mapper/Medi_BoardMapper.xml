@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 함수 불러오기 -->
+<mapper namespace="org.hj.mapper.Medi_BoardMapper">
+    <select id="getAllMediProducts" resultType="org.hj.model.Medi_BoardVO">
+        SELECT 
+            Medi_no AS mediNo, 
+            Medi_name AS mediName, 
+            Medi_total AS mediTotal, 
+            Medi_indate AS mediIndate, 
+            Medi_Company AS mediCompany, 
+            Medi_safetyInven AS mediSafetyInven
+        FROM Medi_schema.Medi_Product
+    </select>
+    <!-- 추가된 함수 저장 -->
+    <insert id="insertMediProducts">
+        <foreach collection="list" item="mediProduct" separator=";">
+            INSERT INTO Medi_schema.Medi_Product (
+                Medi_no, 
+                Medi_name, 
+                Medi_total, 
+                Medi_indate, 
+                Medi_Company, 
+                Medi_safetyInven
+            ) VALUES (
+                #{mediProduct.mediNo}, 
+                #{mediProduct.mediName}, 
+                #{mediProduct.mediTotal}, 
+                #{mediProduct.mediIndate}, 
+                #{mediProduct.mediCompany}, 
+                #{mediProduct.mediSafetyInven}
+            )
+        </foreach>
+    </insert>
+    
+    <update id="updateMediProduct">
+        UPDATE Medi_schema.Medi_Product
+        SET 
+            Medi_name = #{mediName},
+            Medi_total = #{mediTotal},
+            Medi_indate = #{mediIndate},
+            Medi_Company = #{mediCompany},
+            Medi_safetyInven = #{mediSafetyInven}
+        WHERE Medi_no = #{mediNo}
+    </update>
+    
+     <delete id="deleteByMediNo">
+    DELETE FROM Medi_schema.Medi_Product
+     WHERE  medi_no = #{mediNo}
+      </delete>
+</mapper>
