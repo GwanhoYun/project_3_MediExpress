@@ -9,4 +9,4 @@
 	  select * from public_schema.product;
 	</select>
 
-</mapper>
+</mapper> 
