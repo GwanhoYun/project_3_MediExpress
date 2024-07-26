@@ -14,29 +14,29 @@ import org.hj.model.DeliveryVO;
 public interface DeliveryMapper {
 
 		@Select("SELECT d_no, o_no, o_id, o_address " +
-		        "FROM Delivery_GPS" + " WHERE d_no = #{d_no}" )
+		        "FROM public_schema.Delivery_GPS" + " WHERE d_no = #{d_no}" )
 		List<DeliveryVO> Deliverylist(DeliveryVO info);
 		
 		@Select("SELECT o_no, o_id, o_address, d_no, d_complete " +
-		        "FROM Delivery_GPS")
+		        "FROM public_schema.Delivery_GPS")
 		List<DeliveryVO> DeliveryInfo();
 	   
-	    @Update("UPDATE Delivery_GPS SET x = #{x}, y = #{y} WHERE d_no = #{d_no}")
+	    @Update("UPDATE public_schema.Delivery_GPS SET x = #{x}, y = #{y} WHERE d_no = #{d_no}")
 	    void insertGPS(@Param("d_no") int d_no, @Param("x") double x, @Param("y") double y);
 	    
-	    @Update("UPDATE Delivery_GPS SET d_complete = true WHERE d_no = #{d_no}")
+	    @Update("UPDATE public_schema.Delivery_GPS SET d_complete = true WHERE d_no = #{d_no}")
 	    void DeliveryCompletion(DeliveryVO info);
 	    
-	    @Insert("INSERT INTO Medicode_Tracking (d_no) VALUES (#{d_no})")
+	    @Insert("INSERT INTO public_schema.Medicode_Tracking (d_no) VALUES (#{d_no})")
 	    void StartTrac(DeliveryVO info);
 	    
-	    @Update("UPDATE Medicode_Tracking SET hub_name = #{hub_name}, hub_arr = NOW() WHERE d_no = #{d_no}")
+	    @Update("UPDATE public_schema.Medicode_Tracking SET hub_name = #{hub_name}, hub_arr = NOW() WHERE d_no = #{d_no}")
 	    void HubInTrac(DeliveryVO info);
 	    
-	    @Update("UPDATE Medicode_Tracking SET hub_dep = NOW() WHERE d_no = #{d_no}")
+	    @Update("UPDATE public_schema.Medicode_Tracking SET hub_dep = NOW() WHERE d_no = #{d_no}")
 	    void HubStartTrac(DeliveryVO info);
 	    
-	    @Update("UPDATE Medicode_Tracking SET del_comp = NOW() WHERE d_no = #{d_no}")
+	    @Update("UPDATE public_schema.Medicode_Tracking SET del_comp = NOW() WHERE d_no = #{d_no}")
 	    void DeliveryComTime(DeliveryVO info);
 	    
 }
