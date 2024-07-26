@@ -32,7 +32,7 @@
                 <th>총 안전 재고량</th>
                 <th>수정</th>
                 <th>비고</th>
-            </tr>
+            </tr> 
         </thead>
         <tbody>
             <c:forEach var="mediProduct" items="${mediProducts}">
