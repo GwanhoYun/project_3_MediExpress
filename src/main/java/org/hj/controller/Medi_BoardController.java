@@ -17,12 +17,12 @@ public class Medi_BoardController {
     private Medi_BoardService mediBoardService;
 
      
-    @GetMapping
-    public String getProductList(Model model) {
-        List<Medi_BoardVO> mediProducts = mediBoardService.getAllMediProducts();
-        model.addAttribute("mediProducts", mediProducts);
-        return "productList";
-    }
+//    @GetMapping
+//    public String getProductList(Model model) {
+//        List<Medi_BoardVO> mediProducts = mediBoardService.getAllMediProducts();
+//        model.addAttribute("mediProducts", mediProducts);
+//        return "productList";
+//    }
     
   
     

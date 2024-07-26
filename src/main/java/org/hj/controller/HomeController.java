@@ -14,9 +14,8 @@ public class HomeController {
 	
 	
 	@GetMapping("/") 
-
 	public String home(Locale locale, Model model) {
-		return "Testfile"; 
+		return "index"; 
 	}
 	
 
