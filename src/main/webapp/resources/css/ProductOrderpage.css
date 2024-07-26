@@ -16,7 +16,7 @@ main {
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: inner-spin-button;
-    height: 30px;
+    height: 30px; 
     width: 30px;
     opacity: 1;
 }

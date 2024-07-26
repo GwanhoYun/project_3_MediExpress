@@ -42,7 +42,7 @@
                 <div class="maker">
                     <p>제조사</p>
                     <span>제트메디컬</span>
-                </div>
+                </div> 
                 <div class="item_option">
                     <p>옵션선택</p>
                     <div class="select_box">

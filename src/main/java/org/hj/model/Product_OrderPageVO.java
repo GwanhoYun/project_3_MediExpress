@@ -10,7 +10,7 @@ public class Product_OrderPageVO {
          }
          public void setPno(int pno) {
            this.pno = pno;
-         }
+         } 
          public String getPname() {
            return pname;
          }

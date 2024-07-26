@@ -13,5 +13,5 @@ public interface Medi_BoardMapper {
     void deleteByMediNo(int mediNo);
     
 }
-
+ 
   

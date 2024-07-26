@@ -21,7 +21,7 @@ public class Medi_BoardController {
 //    public String getProductList(Model model) {
 //        List<Medi_BoardVO> mediProducts = mediBoardService.getAllMediProducts();
 //        model.addAttribute("mediProducts", mediProducts);
-//        return "productList";
+//        return "productList"; 
 //    }
     
   

@@ -18,7 +18,7 @@ function selectOption(option) {
         // 총 가격 갱신
         totalPrice += itemPrice;
     } else {
-        // 새 아이템 추가
+        // 새 아이템 추가 
         cart.push({
             name: itemName,
             price: itemPrice,

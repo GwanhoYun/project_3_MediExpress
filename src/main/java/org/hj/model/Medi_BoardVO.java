@@ -12,7 +12,7 @@ public class Medi_BoardVO {
     private Date mediIndate;
 
     private String mediCompany;
-    private int mediSafetyInven;
+    private int mediSafetyInven; 
 
 
  

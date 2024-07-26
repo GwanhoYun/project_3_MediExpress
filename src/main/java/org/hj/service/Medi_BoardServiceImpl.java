@@ -13,7 +13,7 @@ public class Medi_BoardServiceImpl implements Medi_BoardService {
 
     //데이터 베이스에 있는 리스트 불러오기
     @Override
-    public List<Medi_BoardVO> getAllMediProducts() {
+    public List<Medi_BoardVO> getAllMediProducts() { 
         return mediBoardMapper.getAllMediProducts();
     }
     

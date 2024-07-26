@@ -16,7 +16,7 @@ function activateItem(index) {
     items.forEach((item, idx) => {
         item.style.display = (idx === index) ? "flex" : "none";
     });
-
+ 
     buttonStyle.forEach((btn, idx) => {
         btn.style.borderTop = (idx === index) ? "3px solid #0079e9" : "3px solid #7B7B7B";
         btn.style.borderBottom = (idx === index) ? "3px solid #0079e9" : "3px solid #7B7B7B";
