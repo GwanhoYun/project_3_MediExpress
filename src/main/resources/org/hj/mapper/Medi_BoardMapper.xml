@@ -14,7 +14,7 @@
             Medi_indate AS mediIndate, 
             Medi_Company AS mediCompany,  
             Medi_safetyInven AS mediSafetyInven 
-        FROM Medi_schema.Medi_Product
+        FROM Medi_Product
     </select>
     <!-- 추가된 함수 저장 -->
     <insert id="insertMediProducts">
