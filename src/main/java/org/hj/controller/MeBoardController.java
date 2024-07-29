@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.hj.model.LoginVO;
 import org.hj.model.MeBoardVO;
+import org.hj.service.DeliveryService;
 import org.hj.service.MeBoardService;
 
 @Controller
@@ -19,6 +20,8 @@ public class MeBoardController {
 
     @Autowired
     private MeBoardService boardService;
+    @Autowired
+    private DeliveryService DeSevice;
 
     @PostMapping("/add")
     public String addBoard(@ModelAttribute MeBoardVO board) {
@@ -33,7 +36,12 @@ public class MeBoardController {
                                   Model model,
                                   HttpSession session) {
         System.out.println("Fetching order details for o_no: " + o_no + " and p_no: " + p_no);
-
+        
+        // 배송 추적을 위한 송장 번호 가져오기
+        int userD_no = DeSevice.FindD_NO(o_no);
+        System.out.println("송장번호 호출 D_no: " + userD_no);
+        model.addAttribute("userD_no", userD_no);
+        
         // 로그인 정보 가져오기
         LoginVO loginResult = (LoginVO) session.getAttribute("login");
         if (loginResult != null) {
@@ -64,6 +72,7 @@ public class MeBoardController {
         } else {
             System.out.println("No order found for the given parameters.");
         }
+        
 
         return "boardDetail";
     }

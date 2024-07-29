@@ -109,23 +109,23 @@ th {
 				</tbody>
 			</table>
 		</div>
-		<div class="delivery-info">
-			<h2>배송 정보</h2>
-			<table>
-				<tbody>
-					<tr>
-						<th>배달 주소</th>
-						<td>${board.o_address}</td>
-					</tr>
-					 <tr id="deliveryStatusRow">
-                        <th>배송 상태</th>
-                        <td class="status"><div id="map" style="width:100%;height:350px;"></div></td>
-                    </tr>
-				</tbody>
-			</table>
-			<button class="update-button" onclick="updateDeliveryStatus()">
-			배송 상태 업데이트</button>
-		</div>
+		
+    <div class="delivery-info">
+       <h2>배송 조회</h2>
+        <table>
+        <thead>
+            <tr>
+                <th>날짜</th>
+                <th>배송 진행상황</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 배송 추적 정보 삽입 -->
+        </tbody>
+        </table>
+        <button class="update-button" onclick="updateDeliveryStatus()">배송 상태 업데이트</button>
+    </div>
+    
 		<div class="product-info">
 			<h2>제품 정보</h2>
 			<table>
@@ -167,37 +167,64 @@ th {
 		<a href="/boards/ss?o_no=${board.o_no}&p_no=${board.p_no}">거래명세표</a>
 		<button class="review-button" onclick="writeReview()">리뷰 작성</button>
 	</div>
-		<script>
-		function printPage() {
-			window.print();
-		}
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+      
+      //가져온 송장 번호
+      var d_no = ${userD_no} + 10
+      
+      function printPage() {
+         window.print();
+      }
+  
+      //배송 추적 상황 업데이트 
+      function updateDeliveryStatus() {
+    	    console.log("Sending data to server: ", { d_no: d_no }); // 콘솔 로그 추가
+    	    $.ajax({
+    	        type: "POST",
+    	        url: "/UserTrac",
+    	        data: JSON.stringify({ d_no: d_no }),
+    	        contentType: 'application/json; charset=utf-8',
+    	        dataType: 'json', // 데이터 타입을 JSON으로 설정
+    	        success: function(response) {
+    	            console.log("Delivery started");
+    	            updateTable(response);
+    	        },
+    	        error: function(xhr, status, error) {
+    	            console.error("Error starting delivery: " + error);
+    	        }
+    	    });
+    	    alert("배송 상태가 업데이트되었습니다.");
+    	}
 
-		function updateDeliveryStatus() {
-			// 배송 상태 업데이트 로직 추가
-			alert("배송 상태가 업데이트되었습니다.");
-		}
+    	function updateTable(data) {
+    	    var tbody = $('div.delivery-info table tbody');
+    	    tbody.empty(); 
 
-		function writeReview() {
-			// 리뷰 작성 페이지로 이동 로직 추가
-			alert("리뷰 작성 페이지로 이동합니다.");
-			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = { 
-		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		        level: 3 // 지도의 확대 레벨
-		    };
+    	    // 서버에서 받은 데이터 배열을 순회하면서 테이블 행을 추가
+    	    data.forEach(function(usertrac) {
+    	        var row = '';
 
-		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		}
+    	        // 배송 상태에 따라 적절한 행을 추가
+    	        if (usertrac.dep_time) {
+    	            row = '<tr><td>' + usertrac.dep_time + '</td><td>배송 출발 하였습니다.</td></tr>';
+    	            tbody.append(row);
+    	        }
+    	        if (usertrac.hub_arr) {
+    	            row = '<tr><td>' + usertrac.hub_arr + '</td><td>' + usertrac.hub_name + '에 도착하였습니다.</td></tr>';
+    	            tbody.append(row);
+    	        }
+    	        if (usertrac.hub_dep) {
+    	            row = '<tr><td>' + usertrac.hub_dep + '</td><td>' + usertrac.hub_name + '에서 배송 출발 하였습니다.</td></tr>';
+    	            tbody.append(row);
+    	        }
+    	        if (usertrac.del_comp) {
+    	            row = '<tr><td>' + usertrac.del_comp + '</td><td>고객님께 물품을 전달하였습니다.</td></tr>';
+    	            tbody.append(row);
+    	        }
+    	    });
+    	}
 
-        window.onload = function() {
-            var approvalStatus = document.getElementById('approvalStatus').textContent;
-            var deliveryStatusRow = document.getElementById('deliveryStatusRow');
-
-            if (approvalStatus !== '승인') {
-                deliveryStatusRow.style.display = 'none';
-            }
-        };
-	</script>
+   </script>
 </body>
 </html>

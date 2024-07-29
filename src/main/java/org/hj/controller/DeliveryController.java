@@ -1,5 +1,9 @@
 package org.hj.controller;
 
+
+import java.util.List;
+
+import org.hj.model.DeliTracVO;
 import org.hj.model.DeliveryVO;
 import org.hj.service.DeliveryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class DeliveryController {
@@ -36,15 +41,15 @@ public class DeliveryController {
 	
 	}
 	
-	//주문자의 배송현황 
-	@GetMapping("/userdeli")
-	public String MediUserOrderlist() {
 	
-	//System.out.println(DeSevice.DeliveryInfo());
-	
-	
-	return "DELIVERY/UserOrderlist"; 
-	
+	//주문자가 배송 추적상황 조회
+	@PostMapping("/UserTrac")
+	@ResponseBody
+	public List<DeliTracVO> MediUserTrac(@RequestBody DeliTracVO info) {
+	    List<DeliTracVO> result = DeSevice.UserTrac(info);
+	    System.out.println("추적 현황" + result);
+	    return result;
+	    
 	}
 	
 	//주문자가 보는 택배기사 실시간 위치(좌표값)
