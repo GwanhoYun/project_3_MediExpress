@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.hj.mapper.Product_indexMapper">
+
+    <select id="getProducts" resultType="org.hj.model.Product_indexVO">
+        SELECT 
+            product_no AS id, 
+            product_name AS name, 
+            product_price AS price, 
+            product_company AS company
+        FROM Medi_schema.Product_product
+    </select>
+    
+     <select id="getProductById" parameterType="int" resultType="org.hj.model.Product_indexVO">
+        SELECT 
+            product_no AS productNo, 
+            product_name AS productName, 
+            product_price AS productPrice, 
+            product_company AS productCompany, 
+            product_image AS productImage
+        FROM Medi_schema.Product_product
+        WHERE product_no = #{id}
+    </select>
+
+</mapper>

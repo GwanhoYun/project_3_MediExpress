@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,20 +82,23 @@
                         <button class="view_item_btn3" onclick="activateItem(2)">의료기기</button>
                         <button class="view_item_btn4" onclick="activateItem(3)">전산/사무용품</button>
                     </div>
+                      
                     <div class="view_item_container_1" style="display: flex;">
+                   
                         <div class="item">
-                            <a href="">
+                            <a href="productdetail/${product0.id}">
                                 <div class="item_image">
                                     <img src="/resources/img/주사기.jpg" alt="item1_img"
                                         onerror="this.onerror=null; this.src='/resources//resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>거즈</h3>
-                                    <p>1000원</p>
+                                  <h3>${product0.company}</h3>
+						                      <h3>${product0.name}</h3>
+						                      <p>${product0.price}원</p>
                                 </div>
                             </a>
                         </div>
+                        
                         <div class="item">
                             <a href="">
                                 <div class="item_image">
@@ -102,9 +106,9 @@
                                         onerror="this.onerror=null; this.src='/resources//resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>붕대</h3>
-                                    <p>1000원</p>
+                                     <h3>${product1.company}</h3>
+                                  <h3>${product1.name}</h3>
+                                  <p>${product1.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -115,9 +119,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>일회용주사기(D/Syringe) 유침</h3>
-                                    <p>6100원</p>
+                                     <h3>${product2.company}</h3>
+                                  <h3>${product2.name}</h3>
+                                  <p>${product2.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -128,9 +132,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>일회용 알콜솜 에탄올 스왑 팩</h3>
-                                    <p>850원</p>
+                                     <h3>${product3.company}</h3>
+                                  <h3>${product3.name}</h3>
+                                  <p>${product3.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -143,9 +147,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트제약</h3>
-                                    <h3>트리암시놀론주사 1ml(40mg)</h3>
-                                    <p>21000원</p>
+                                     <h3>${product4.company}</h3>
+                                  <h3>${product4.name}</h3>
+                                  <p>${product4.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -156,9 +160,10 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트제약</h3>
-                                    <h3>베라카인스프레이(리도카인) 50ml</h3>
-                                    <p>7500원</p>
+                                    <h3>${product5.company}</h3>
+                                  <h3>${product5.name}</h3>
+                                  <p>${product5.price}원</p>
+            
                                 </div>
                             </a>
                         </div>
@@ -169,9 +174,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트제약</h3>
-                                    <h3>리도칸크림 500g</h3>
-                                    <p>21500원</p>
+                                    <h3>${product6.company}</h3>
+                                  <h3>${product6.name}</h3>
+                                  <p>${product6.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -182,9 +187,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>리포라제주 1500IU</h3>
-                                    <p>23650원</p>
+                                     <h3>${product7.company}</h3>
+                                  <h3>${product7.name}</h3>
+                                  <p>${product7.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -197,9 +202,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>네블라이저 마스크_성인용</h3>
-                                    <p>가격 문의</p>
+                                     <h3>${product8.company}</h3>
+                                  <h3>${product8.name}</h3>
+                                  <p>${product8.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -210,9 +215,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>석션기 장우 </h3>
-                                    <p>가격 문의</p>
+                                    <h3>${product9.company}</h3>
+                                  <h3>${product9.name}</h3>
+                                  <p>${product9.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -223,9 +228,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>내시경용 고압분사펌프</h3>
-                                    <p>가격 문의</p>
+                                    <h3>${product10.company}</h3>
+                                  <h3>${product10.name}</h3>
+                                  <p>${product10.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -236,9 +241,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>비접촉 온도계</h3>
-                                    <p>가격 문의</p>
+                                     <h3>${product11.company}</h3>
+                                  <h3>${product11.name}</h3>
+                                  <p>${product11.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -251,9 +256,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트항공</h3>
-                                    <h3>처방전(일반)A4 80G 4000매</h3>
-                                    <p>가격 문의</p>
+                                    <h3>${product12.company}</h3>
+                                  <h3>${product12.name}</h3>
+                                  <p>${product12.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -264,9 +269,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트투어</h3>
-                                    <h3>처방전(일반)A4 80G 4000매</h3>
-                                    <p>가격 문의</p>
+                                    <h3>${product13.company}</h3>
+                                  <h3>${product13.name}</h3>
+                                  <p>${product13.price}원</p>
                                 </div> 
                             </a>
                         </div>
@@ -277,9 +282,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>제트메디컬</h3>
-                                    <h3>처방전(일반)A4 80G 4000매</h3>
-                                    <p>가격 문의</p>
+                                    <h3>${product14.company}</h3>
+                                  <h3>${product14.name}</h3>
+                                  <p>${product14.price}원</p>
                                 </div>
                             </a>
                         </div>
@@ -290,9 +295,9 @@
                                         onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
                                 </div>
                                 <div class="item_price">
-                                    <h3>글로벌메디컬대학병원</h3>
-                                    <h3>처방전(일반)A4 80G 4000매</h3>
-                                    <p>가격 문의</p>
+                                     <h3>${product15.company}</h3>
+                                  <h3>${product15.name}</h3>
+                                  <p>${product15.price}원</p>
                                 </div>
                             </a>
                         </div>
