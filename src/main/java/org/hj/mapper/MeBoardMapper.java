@@ -1,6 +1,8 @@
 package org.hj.mapper;
 
 import java.util.List;
+import java.util.Map;
+
 import org.hj.model.MeBoardVO;
 
 public interface MeBoardMapper {
@@ -11,4 +13,5 @@ public interface MeBoardMapper {
     List<MeBoardVO> getAllBoards();
     MeBoardVO getOrder(int orderNo); // 추가된 메서드
     List<MeBoardVO> getAllOrders(); // 추가된 메서드
+    MeBoardVO getOrder(Map<String, Object> params);
 }

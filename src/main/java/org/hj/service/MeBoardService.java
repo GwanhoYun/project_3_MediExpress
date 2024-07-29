@@ -1,6 +1,8 @@
 package org.hj.service;
 
 import java.util.List;
+import java.util.Map;
+
 import org.hj.model.MeBoardVO;
 
 public interface MeBoardService {
@@ -11,4 +13,5 @@ public interface MeBoardService {
     List<MeBoardVO> getAllBoards();
     MeBoardVO getOrder(int orderNo);
     List<MeBoardVO> getAllOrders(); // 추가된 메서드
+    MeBoardVO getOrder(Map<String, Object> params);
 }

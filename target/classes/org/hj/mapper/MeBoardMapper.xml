@@ -17,33 +17,29 @@
     </resultMap>
     
     <insert id="insertBoard" parameterType="org.hj.model.MeBoardVO">
-        INSERT INTO OrderList (o_no, o_id, o_address, p_no, o_num, o_Total, o_date, o_permit)
+        INSERT INTO public_schema.OrderList (o_no, o_id, o_address, p_no, o_num, o_Total, o_date, o_permit)
         VALUES (#{o_no}, #{o_id}, #{o_address}, #{p_no}, #{o_num}, #{o_Total}, #{o_date}, #{o_permit})
     </insert>
     
     <update id="updateBoard" parameterType="org.hj.model.MeBoardVO">
-        UPDATE OrderList
+        UPDATE public_schema.OrderList
         SET o_id = #{o_id}, o_address = #{o_address}, p_no = #{p_no}, o_num = #{o_num},
             o_Total = #{o_Total}, o_date = #{o_date}, o_permit = #{o_permit}
         WHERE o_no = #{o_no}
     </update>
     
-    <delete id="deleteBoard" parameterType="int">
-        DELETE FROM OrderList WHERE o_no = #{o_no}
-    </delete>
-    
     <select id="getBoardById" resultMap="boardResultMap" parameterType="int">
-        SELECT * FROM OrderList WHERE o_no = #{o_no}
+        SELECT * FROM public_schema.OrderList WHERE o_no = #{o_no}
     </select>
     
     <select id="getAllBoards" resultMap="boardResultMap">
-        SELECT * FROM OrderList
+        SELECT * FROM public_schema.OrderList
     </select>
-     <select id="getOrder" parameterType="int" resultType="org.hj.model.MeBoardVO">
-        SELECT * FROM OrderList WHERE o_no = #{o_no} and #{p_no} <!-- 수정된 메서드 -->
-    </select>
+    <select id="getOrder" parameterType="map" resultType="org.hj.model.MeBoardVO">
+    SELECT * FROM public_schema.OrderList WHERE o_no = #{o_no} AND p_no = #{p_no}
+</select>
     
     <select id="getAllOrders" resultType="org.hj.model.MeBoardVO">
-        SELECT * FROM OrderList
+       SELECT * FROM public_schema.OrderList WHERE o_no = #{o_no} AND p_no = #{p_no}
     </select>
 </mapper>

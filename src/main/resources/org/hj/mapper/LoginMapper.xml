@@ -6,10 +6,17 @@
 <mapper namespace="org.hj.mapper.LoginMapper">
 
     <!-- 로그인 정보 조회 쿼리 -->
-    <select id="login" parameterType="map" resultType="org.hj.model.LoginVO">
-        SELECT id, password, name  <!-- name 컬럼을 포함하도록 수정 -->
+    <select id="login" parameterType="org.hj.model.LoginVO" resultType="org.hj.model.LoginVO">
+        SELECT id, password, name 
         FROM login
         WHERE id = #{id} AND password = #{password} 
+    </select>
+
+    <!-- 추가적인 쿼리 메서드 -->
+    <select id="getUserById" parameterType="String" resultType="org.hj.model.LoginVO">
+        SELECT id, name 
+        FROM login 
+        WHERE id = #{id}
     </select>
 
 </mapper>
