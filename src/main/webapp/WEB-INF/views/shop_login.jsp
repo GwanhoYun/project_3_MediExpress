@@ -15,17 +15,6 @@
 </style>
 </head>
 <body>
-<%
-    String clientId = "RhYUDtcrGAZKn45AMi7b";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://localhost:8080/callback", "UTF-8");
-    SecureRandom random = new SecureRandom();
-    String state = new BigInteger(130, random).toString();
-    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-    apiURL += "&client_id=" + clientId;
-    apiURL += "&redirect_uri=" + redirectURI;
-    apiURL += "&state=" + state;
-    session.setAttribute("state", state);
- %>
     <header>
         <div class="header_top">
             <div class="header_top_width">
@@ -239,7 +228,6 @@
                             <span>|</span>
                             <a href="#" class="find_button">비밀번호 찾기</a> <!-- 비밀번호 찾기 링크 -->
                         </div>
-                        <a href="<%= apiURL %>" id="naverIdLogin"><img src="https://static.nid.naver.com/oauth/small_g_in.PNG" alt="네이버 로그인" /></a> <!-- 네이버 로그인 이미지 추가 -->
                         <div>
                             <a href="#" class="join_button">회원가입</a> <!-- 회원가입 링크 -->
                         </div>

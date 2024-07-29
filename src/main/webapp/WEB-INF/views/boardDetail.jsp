@@ -91,29 +91,20 @@ th {
 			<table>
 				<tbody>
 					<tr>
-						<th>수주 번호</th>
+						<th>주문 번호</th>
 						<td>${board.o_no}</td>
 					</tr>
 					<tr>
 						<th>회원 ID</th>
-						<td>${board.o_id}</td>
+						<td>${loginUser.id}</td>
 					</tr>
 					<tr>
 						<th>회원 이름</th>
-            <c:if test="${not empty loginUser}">
-                <td>${loginUser}</td>
-            </c:if>
-            <c:if test="${empty loginUser}">
-                <td>로그인 필요</td>
-            </c:if>
+						<td>${loginUser.name}</td>
 					</tr>
 					<tr>
 						<th>주문 일자</th>
 						<td>${board.o_date.year + 1900}-${board.o_date.month + 1}-${board.o_date.date}</td>
-					</tr>
-					<tr>
-						<th>승인 여부</th>
-						<td class="status" id="approvalStatus">${board.o_permit ? '승인' : '미승인'}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -173,7 +164,7 @@ th {
 				</tbody>
 			</table>
 		</div>
-		<a href="/boards/ss?o_no=${board.o_no}">거래명세표</a>
+		<a href="/boards/ss?o_no=${board.o_no}&p_no=${board.p_no}">거래명세표</a>
 		<button class="review-button" onclick="writeReview()">리뷰 작성</button>
 	</div>
 		<script>

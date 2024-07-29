@@ -1,6 +1,8 @@
 package org.hj.service;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.hj.mapper.MeBoardMapper;
@@ -45,5 +47,9 @@ public class MeBoardServiceImpl implements MeBoardService {
     @Override
     public List<MeBoardVO> getAllOrders() {
         return boardMapper.getAllOrders();
+    }
+    @Override
+    public MeBoardVO getOrder(Map<String, Object> params) {
+        return boardMapper.getOrder(params);
     }
 }
