@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.hj.model.DeliTracVO;
 import org.hj.model.DeliveryVO;
 
 
@@ -20,6 +21,13 @@ public interface DeliveryMapper {
 		@Select("SELECT o_no, o_id, o_address, d_no, d_complete " +
 		        "FROM public_schema.Delivery_GPS")
 		List<DeliveryVO> DeliveryInfo();
+		
+		@Select("SELECT * " +
+		        "FROM public_schema.Medicode_Tracking" + " WHERE d_no = #{d_no}")
+		List<DeliTracVO> UserTrac(DeliTracVO info);;
+		
+	    @Select("SELECT d_no FROM public_schema.Delivery_GPS WHERE o_no = #{o_no}")
+	    int FindD_NO(@Param("o_no") int o_no);	    
 	   
 	    @Update("UPDATE public_schema.Delivery_GPS SET x = #{x}, y = #{y} WHERE d_no = #{d_no}")
 	    void insertGPS(@Param("d_no") int d_no, @Param("x") double x, @Param("y") double y);
@@ -38,5 +46,7 @@ public interface DeliveryMapper {
 	    
 	    @Update("UPDATE public_schema.Medicode_Tracking SET del_comp = NOW() WHERE d_no = #{d_no}")
 	    void DeliveryComTime(DeliveryVO info);
+
+		
 	    
 }

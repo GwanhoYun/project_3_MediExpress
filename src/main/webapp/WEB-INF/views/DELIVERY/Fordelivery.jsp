@@ -346,7 +346,7 @@ var o_address = document.getElementById('o_address').textContent || document.get
         kakao.maps.event.addListener(marker, 'dragend', function () {
             var lat = marker.getPosition().getLat();
             var lon = marker.getPosition().getLng();
-            document.getElementById('coordinates').innerText = '위도: ' + lat + ', 경도: ' + lon;
+            //document.getElementById('coordinates').innerText = '위도: ' + lat + ', 경도: ' + lon;
             checkMarkerPosition(lat, lon);
             updateLocationToServer(lat, lon);
         });
@@ -370,6 +370,7 @@ var o_address = document.getElementById('o_address').textContent || document.get
                     navigator.geolocation.clearWatch(watchID); //위치 추적을 종료
                     watchID = null;
                     console.log("Geolocation watch stopped");
+                    alert(areas[i].name + "에 도착하셨습니다. 출발하실때 다시 배송시작을 해주시길 바랍니다.")
                     break;
                 }
                 
@@ -379,6 +380,7 @@ var o_address = document.getElementById('o_address').textContent || document.get
                     navigator.geolocation.clearWatch(watchID); //위치 추적을 종료
                     watchID = null;
                     console.log("Geolocation watch stopped");
+                    alert("물품을 전달했습니다. 수고하셨습니다!")
                     break;
                 }
             }
