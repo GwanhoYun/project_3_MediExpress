@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.hj.model.LoginVO;
 import org.hj.model.MeBoardVO;
 import org.hj.service.DeliveryService;
+import org.hj.service.LoginService;
 import org.hj.service.MeBoardService;
 
 @Controller
@@ -20,6 +21,9 @@ public class MeBoardController {
 
     @Autowired
     private MeBoardService boardService;
+    
+    @Autowired
+    private LoginService loginService; // LoginService로 변경
     @Autowired
     private DeliveryService DeSevice;
 
@@ -116,23 +120,24 @@ public class MeBoardController {
         LoginVO loginResult = (LoginVO) session.getAttribute("login");
         if (loginResult != null) {
             model.addAttribute("loginUser", loginResult.getName());
+            model.addAttribute("loginUserID", loginResult.getId());
             System.out.println("Logged in user: " + loginResult.getName());
+
+            // 로그인된 사용자의 아이디를 사용하여 주문 내역 조회
+            List<MeBoardVO> boards = loginService.getAllBoardsByUserId(loginResult.getId());
+            if (boards != null) {
+                model.addAttribute("boards", boards);
+                System.out.println("Fetched boards: " + boards);
+            } else {
+                System.out.println("No boards found.");
+            }
         } else {
             System.out.println("No login information in session.");
             model.addAttribute("loginUser", "로그인 필요");
         }
 
-        List<MeBoardVO> boards = boardService.getAllBoards();
-        if (boards != null) {
-            model.addAttribute("boards", boards);
-            System.out.println("Fetched boards: " + boards);
-        } else {
-            System.out.println("No boards found.");
-        }
-
         return "list"; // list.jsp로 렌더링
     }
-
 
     @GetMapping("/writeForm")
     public String writeForm() {

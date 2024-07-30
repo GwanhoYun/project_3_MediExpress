@@ -14,4 +14,5 @@ public interface MeBoardMapper {
     MeBoardVO getOrder(int orderNo); // 추가된 메서드
     List<MeBoardVO> getAllOrders(); // 추가된 메서드
     MeBoardVO getOrder(Map<String, Object> params);
+    List<MeBoardVO> getAllBoards(String userId);
 }

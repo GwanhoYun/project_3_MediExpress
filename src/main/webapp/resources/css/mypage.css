@@ -310,7 +310,7 @@ main {
     transform: translateY(-120%);
 }
 
-.benefit_and_delivery_process_title  {
+.benefit_and_delivery_process_title {
     font-weight: bold;
 }
 
@@ -344,11 +344,12 @@ main {
 }
 
 .delivery_porcess_link,
-.detail_link{
+.detail_link {
     color: #999;
     font-size: 0.9em;
 }
+
 .delivery_porcess_link:hover,
-.detail_link:hover{
+.detail_link:hover {
     color: #0079e9;
 }

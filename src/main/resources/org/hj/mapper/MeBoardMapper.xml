@@ -32,9 +32,11 @@
         SELECT * FROM public_schema.OrderList WHERE o_no = #{o_no}
     </select>
     
-    <select id="getAllBoards" resultMap="boardResultMap">
-        SELECT * FROM public_schema.OrderList
-    </select>
+    <select id="getAllBoards" parameterType="string" resultMap="boardResultMap">
+    SELECT * FROM public_schema.OrderList
+    WHERE o_id = #{userId}
+</select>
+
     <select id="getOrder" parameterType="map" resultType="org.hj.model.MeBoardVO">
     SELECT * FROM public_schema.OrderList WHERE o_no = #{o_no} AND p_no = #{p_no}
 </select>

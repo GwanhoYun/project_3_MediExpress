@@ -9,6 +9,7 @@
     <p class="welcome-text">
         <c:if test="${not empty loginUser}">
             ${loginUser}님 환영합니다!
+            ${loginUserID}님 환영합니다!
         </c:if>
         <c:if test="${empty loginUser}">
             로그인 정보가 없습니다.
