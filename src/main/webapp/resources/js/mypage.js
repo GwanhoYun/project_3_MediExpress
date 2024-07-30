@@ -1,18 +1,12 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // index는 1부터 시작하므로 1부터 시작하는 루프를 작성
-    for (let i = 1; ; i++) {
-        // price_[index] 요소를 찾음
-        const priceElement = document.querySelector(`.price_${i}`);
-        if (!priceElement) break; // 더 이상 요소가 없으면 루프를 종료
-
-        // saving_point_[index] 요소를 찾음
-        const savingPointElement = document.querySelector(`.saving_point_${i}`);
-        if (!savingPointElement) break;
-        // price 값을 가져와서 1/100으로 계산
-        const priceValue = parseFloat(priceElement.textContent);
-        const savingPointValue = Math.ceil(priceValue / 100);
-
-        // 계산된 값을 saving_point 요소에 설정
-        savingPointElement.textContent = savingPointValue;
+ // 총 가격에 따라 적립 포인트 계산하는 함수
+    function calculateSavingPoints() {
+        const priceElements = document.querySelectorAll('.price');
+        priceElements.forEach(priceElement => {
+            const price = parseInt(priceElement.textContent.replace(/,/g, ''), 10);
+            const points = Math.floor(price * 0.05); // 예: 총 가격의 5%
+            const pointElement = priceElement.closest('.item_info').querySelector('.saving_point');
+            pointElement.textContent = points.toLocaleString(); // 포인트를 세자리수 콤마로 표시
+        });
     }
-});
+    // DOM이 로드된 후 함수 실행
+    document.addEventListener('DOMContentLoaded', calculateSavingPoints);

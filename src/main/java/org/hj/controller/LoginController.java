@@ -51,6 +51,7 @@ public class LoginController {
 
         if (loginResult != null) {
             model.addAttribute("loginUser", loginResult.getName()); // 사용자 이름을 모델에 추가
+            model.addAttribute("loginUserID", loginResult.getId());
             return "loginco"; // 로그인된 사용자의 정보를 표시할 페이지로 이동
         } else {
             return "redirect:/login"; // 로그인되지 않은 경우 다시 로그인 페이지로 리다이렉트
