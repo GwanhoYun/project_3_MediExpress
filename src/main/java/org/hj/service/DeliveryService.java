@@ -13,6 +13,8 @@ public interface DeliveryService {
 	
 	public List<DeliTracVO> UserTrac(DeliTracVO info);
 	
+	public List<DeliveryVO> UserLocation(DeliveryVO info);
+	
 	public int FindD_NO(int o_no);
 
 	public void insertGPS(DeliveryVO info);

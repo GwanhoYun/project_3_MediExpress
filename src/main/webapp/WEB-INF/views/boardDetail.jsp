@@ -63,7 +63,7 @@ th {
 	color: #007bff;
 }
 
-.print-button, .review-button, .update-button {
+.print-button, .review-button, .update-button, .show-map-button{
 	background-color: #007bff;
 	color: white;
 	border: none;
@@ -77,11 +77,11 @@ th {
 	border-radius: 5px;
 }
 
-.print-button:hover, .review-button:hover, .update-button:hover {
+.print-button:hover, .review-button:hover, .update-button:hover, .show-map-button:hover{
 	background-color: #0056b3;
 }
 </style>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40cc655b8725105eadd83e922c398a13&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=493ebc87b266e867e0070b251a25d928&libraries=services"></script>
 </head>
 <body>
 	<div class="container">
@@ -124,6 +124,11 @@ th {
         </tbody>
         </table>
         <button class="update-button" onclick="updateDeliveryStatus()">배송 상태 업데이트</button>
+        <button class="show-map-button" onclick="showMap()">현재 위치 보기</button>
+        <div id="map-popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:400px; height:400px; background:white; border:1px solid black; z-index:1000;">
+        <div id="map" style="width:100%; height:100%;"></div>
+        <button onclick="closeMap()">닫기</button>
+    </div>
     </div>
     
 		<div class="product-info">
@@ -172,6 +177,14 @@ th {
       
       //가져온 송장 번호
       var d_no = ${userD_no} + 10
+      // 배송 출발 여부를 저장하는 변수
+      var deliveryStarted = false; 
+      // 배송 도착 여부를 저장하는 변수
+      var deliveryCom = false; 
+      
+      //실시간 위치 조회를 위한 맵과 마커 변수를 전역 변수로 선언
+      var map; 
+      var marker; 
       
       function printPage() {
          window.print();
@@ -206,9 +219,14 @@ th {
     	        var row = '';
 
     	        // 배송 상태에 따라 적절한 행을 추가
+    	        if (usertrac == null) {
+    	        	
+    	        	alert("배송 준비중입니다.");
+    	        } 	        
     	        if (usertrac.dep_time) {
     	            row = '<tr><td>' + usertrac.dep_time + '</td><td>배송 출발 하였습니다.</td></tr>';
     	            tbody.append(row);
+    	            deliveryStarted = true; // 배송 출발로 상태 변경
     	        }
     	        if (usertrac.hub_arr) {
     	            row = '<tr><td>' + usertrac.hub_arr + '</td><td>' + usertrac.hub_name + '에 도착하였습니다.</td></tr>';
@@ -221,9 +239,73 @@ th {
     	        if (usertrac.del_comp) {
     	            row = '<tr><td>' + usertrac.del_comp + '</td><td>고객님께 물품을 전달하였습니다.</td></tr>';
     	            tbody.append(row);
+    	            deliveryCom = true; //배송 도착 상태로 변경
     	        }
     	    });
     	}
+    	
+        function showMap() {
+        	
+            if (!deliveryStarted) {
+                alert("배송 준비중입니다.");
+                return;
+            } else if (deliveryCom) {
+            	alert("배송이 완료되었습니다.")
+            	return;
+            }
+        	
+            document.getElementById('map-popup').style.display = 'block';
+            
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = {
+                    center: new kakao.maps.LatLng(35.541959171291644, 129.3382680496882), // 지도의 중심좌표
+                    level: 3 // 지도의 확대 레벨
+                };
+
+            map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+            // 마커가 표시될 위치입니다 
+            var markerPosition  = new kakao.maps.LatLng(35.541959171291644, 129.3382680496882); 
+
+            // 마커를 생성합니다
+            marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+
+            // 마커가 지도 위에 표시되도록 설정합니다
+            marker.setMap(map);
+            
+            // 1초 마다 택배기사 위치를 업데이트
+            setInterval(updateMarkerPosition, 1000);
+        }
+        
+        //택배기사 위치 업데이트 함수 
+        function updateMarkerPosition() {
+            $.ajax({
+                type: "POST",
+                url: "/DeliGetLocation",
+                data: JSON.stringify({ d_no: d_no }),
+                contentType: 'application/json; charset=utf-8', 
+                dataType: 'json',
+                success: function(response) {
+                    var newLat = response[0].x;
+                    var newLng = response[0].y;
+                    var newPosition = new kakao.maps.LatLng(newLat, newLng);
+
+                    // 마커 위치를 업데이트
+                    marker.setPosition(newPosition);
+                    // 지도의 중심을 새로운 위치로 이동
+                    map.setCenter(newPosition);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching location: " + error);
+                }
+            });
+        }
+
+        function closeMap() {
+            document.getElementById('map-popup').style.display = 'none';
+        }
 
    </script>
 </body>

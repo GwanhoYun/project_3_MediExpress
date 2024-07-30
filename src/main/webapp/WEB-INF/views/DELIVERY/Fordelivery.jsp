@@ -294,6 +294,7 @@ var o_address = document.getElementById('o_address').textContent || document.get
     
     // 허브에서 다시 출발 
     function Hubstart() {
+    	//허브 출발시간을 기록하는 함수 (int 값으로 출발 구분)
         updateHubTime('none', 1);
         
         // HTML5의 Geolocation API를 통해 현재 위치를 가져오기

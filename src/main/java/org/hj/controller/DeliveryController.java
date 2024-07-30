@@ -52,7 +52,17 @@ public class DeliveryController {
 	    
 	}
 	
-	//주문자가 보는 택배기사 실시간 위치(좌표값)
+	//주문자가 배송 택배기사 실시간 위치 조회
+	@PostMapping("/DeliGetLocation")
+	@ResponseBody
+	public List<DeliveryVO> MediUserLocation(@RequestBody DeliveryVO info) {
+		List<DeliveryVO> result = DeSevice.UserLocation(info);
+	    System.out.println("현재 위치" + result);
+	    return result;
+	    
+	}
+	
+	//택배기사 실시간 위치(좌표값)
 	@PostMapping("/UserdeliMap")
 	public void MediGPSUpdate(@RequestBody DeliveryVO info) {
 		
