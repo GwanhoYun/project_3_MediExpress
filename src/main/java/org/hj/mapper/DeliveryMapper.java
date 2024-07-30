@@ -26,6 +26,11 @@ public interface DeliveryMapper {
 		        "FROM public_schema.Medicode_Tracking" + " WHERE d_no = #{d_no}")
 		List<DeliTracVO> UserTrac(DeliTracVO info);;
 		
+		@Select("SELECT x, y " +
+		        "FROM public_schema.Delivery_GPS " +
+		        "WHERE d_no = #{d_no}")
+		List<DeliveryVO> UserLocation(DeliveryVO info);
+		
 	    @Select("SELECT d_no FROM public_schema.Delivery_GPS WHERE o_no = #{o_no}")
 	    int FindD_NO(@Param("o_no") int o_no);	    
 	   

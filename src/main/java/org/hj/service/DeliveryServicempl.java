@@ -29,10 +29,14 @@ public class DeliveryServicempl implements DeliveryService {
 		return DeMapper.UserTrac(info);
 	};
 	
+	public List<DeliveryVO> UserLocation(DeliveryVO info){
+		
+		return DeMapper.UserLocation(info);
+	};
+	
 	public int FindD_NO(int o_no) {		
 		
-		return DeMapper.FindD_NO(o_no);
-		
+		return DeMapper.FindD_NO(o_no);		
 	}
 
 	public void insertGPS(DeliveryVO info) {
