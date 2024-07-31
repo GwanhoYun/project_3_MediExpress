@@ -91,6 +91,7 @@
 ## 구현 예시 (웹 디자인, 프론트엔드)
 
 [프론트엔드 구동 예시는 여기를 확인해주세요😊](https://gwanhoyun.github.io/mediExpress/)
+[figma 웹디자인은 여기에서 확인해주세요](https://www.figma.com/proto/ABf8mOFiQsLmuNjab4TIw7/Untitled?node-id=0-1&t=uRDSQF3MbhAuHNfd-1)
 
   + **웹 디자인**
   
@@ -113,6 +114,8 @@ https://github.com/GwanhoYun/project_3_MediExpress/blob/856b745111aa3ccd0c67e309
   + **상품 페이지 (view_item.html)**
 
     1. 상품 옵션을 선택, 삭제하고 중복된 옵션을 선택할 경우 상품 구매 개수가 늘어나도록 함.
+
+https://github.com/GwanhoYun/mediExpress/blob/f3c5f99cc616c56e8446818af73f35cfb45286c8/js/view_item.js#L1-L101
    
   + **주문 페이지 (order_page.html)**
 
