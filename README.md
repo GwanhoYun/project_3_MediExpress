@@ -101,8 +101,7 @@
   + **메인 페이지 (index.html)**
 
     1. for 반복문을 사용해 이미지 슬라이드(캐러셀)에 이미지 추가를 위한 li 태그 추가 시, 스크립트 수정 없이도 작동 할 수 있도록 구현함.
-
-      https://github.com/GwanhoYun/mediExpress/blob/f3c5f99cc616c56e8446818af73f35cfb45286c8/js/index.js#L50-L143
+      https://github.com/GwanhoYun/project_3_MediExpress/blob/856b745111aa3ccd0c67e30941dd65e7eb235673/src/main/webapp/resources/js/index.js#L50-L143
     
     2. 페이지네이션 도트(인디케이터)를 통해 원하는 배너를 출력할 수 있도록 함.
 
