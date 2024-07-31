@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>택배 시스템</title>
+<script src="/resources/js/project3_footer_components.js" defer></script>
 <style>
 body {
    font-family: 'Arial', sans-serif;
@@ -123,8 +124,6 @@ th {
       </div>
 
    </div>
-      <script>
-
-   </script>
+      <script src="/resources/js/project3_footer_components.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.hj.mapper.Product_BuyPageMapper">
+    <select id="getProductList" resultType="org.hj.model.Product_BuypageVO">
+        SELECT product_name AS productName,
+               product_price AS productPrice,
+               product_count AS productCount,
+               product_id AS productId
+        FROM public_schema.Product_shoppingBasket
+    </select>
+</mapper>

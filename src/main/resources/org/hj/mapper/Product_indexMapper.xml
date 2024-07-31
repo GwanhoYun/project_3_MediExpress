@@ -17,10 +17,9 @@
      <select id="getProductById" parameterType="int" resultType="org.hj.model.Product_indexVO">
         SELECT 
             product_no AS productNo, 
-            product_name AS productName, 
-            product_price AS productPrice, 
-            product_company AS productCompany, 
-            product_image AS productImage
+            product_name AS name, 
+            product_price AS price, 
+            product_company AS company
         FROM Medi_schema.Product_product
         WHERE product_no = #{id}
     </select>

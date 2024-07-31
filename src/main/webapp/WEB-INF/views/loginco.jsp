@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
+    <script src="/resources/js/project3_footer_components.js" defer></script>
 </head>
 <body>
     <p class="welcome-text">
@@ -18,4 +19,5 @@
     <a href="${pageContext.request.contextPath}/logout">로그아웃</a>
     <a href="${pageContext.request.contextPath}/boards/all">모든 게시물 보기</a>
 </body>
+   <project3-footer></project3-footer>
 </html>
