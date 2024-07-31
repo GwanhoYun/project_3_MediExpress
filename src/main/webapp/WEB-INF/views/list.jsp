@@ -10,7 +10,7 @@
 <link href="img/titleIcon.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="/resources/css/mypage.css" type="text/css">
 <script src="component/project3_header_components.js" defer></script>
-<script src="component/project3_footer_components.js" defer></script>
+<script src="/resources/js/project3_footer_components.js" defer></script>
 </head>
 <body>
     <project3-header></project3-header>

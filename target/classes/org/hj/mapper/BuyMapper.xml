@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.hj.mapper.BuyMapper">
+    <insert id="insertBuyData" parameterType="org.hj.model.BuyVO">
+         INSERT INTO public_schema.Product_shoppingBasket (Product_id, Product_name, Product_price, Product_count, Product_userId)
+        VALUES (#{id}, #{name}, #{price}, #{count}, #{userId})
+    </insert>
+</mapper>

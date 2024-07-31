@@ -117,7 +117,7 @@ th {
          <button id="hubStartbtt" onclick="Hubstart()" style="display: none;">배송시작</button>
          <p id="coordinates"></p>
   </div>
-
+<project3-footer></project3-footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
@@ -500,5 +500,6 @@ var o_address = document.getElementById('o_address').textContent || document.get
         });
     }
 </script>
+<script src="/resources/js/project3_footer_components.js" defer></script>
 </body>
 </html>

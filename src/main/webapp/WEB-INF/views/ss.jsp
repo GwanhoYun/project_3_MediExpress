@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>거래 명세서</title>
+<script src="/resources/js/project3_footer_components.js" defer></script>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -120,5 +121,6 @@
         </div>
         <button class="print_button" onclick="printPage()">인쇄</button>
     </div>
+    <project3-footer></project3-footer>
 </body>
 </html>

@@ -10,6 +10,7 @@
     <title>Medi Express - 빠른 배송 안전한 의료용품</title>
     <link rel="stylesheet" href="/resources/css/ProductOrderpage.css" type="text/css">
 
+    <script src="/resources/js/project3_footer_components.js" defer></script>
 </head>
 <body>
     <project3-header></project3-header>
@@ -366,4 +367,5 @@
     <project3-footer></project3-footer>
 </body>
 <script rel="javascript" type="text/javascript" src="/resources/js/Product_OrderPage.js"></script>
+
 </html>
