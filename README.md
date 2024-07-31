@@ -108,11 +108,11 @@
     + 페이지네이션 도트(인디케이터)를 통해 원하는 배너를 출력할 수 있도록 함.
 
     + clearInterval()함수를 사용해 배너 정지/시작 기능
+   
+    + 재사용 가능성이 높은 부분은 컴포넌트화하여 재사용성을 높힘.(component폴더 참고)
 
 https://github.com/GwanhoYun/project_3_MediExpress/blob/856b745111aa3ccd0c67e30941dd65e7eb235673/src/main/webapp/resources/js/index.js#L50-L143
 
-    + 재사용 가능성이 높은 부분은 컴포넌트화하여 재사용성을 높힘.(component폴더 참고)
-   
   + **상품 페이지 (view_item.html)**
 
     + 상품 옵션을 선택, 삭제하고 중복된 옵션을 선택할 경우 상품 구매 개수가 늘어나도록 함.
