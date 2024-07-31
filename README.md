@@ -91,9 +91,9 @@
 
 [프론트엔드 구동 예시는 여기를 확인해주세요😊](https://gwanhoyun.github.io/mediExpress/)
 
-[소스코드는 여기서 더 쉽게 확인 할 수 있습니다](https://github.com/GwanhoYun/mediExpress)
+[소스코드는 여기서 더 쉽게 확인 할 수 있습니다👨‍💻](https://github.com/GwanhoYun/mediExpress)
 
-[figma 웹디자인은 여기에서 확인해주세요](https://www.figma.com/proto/ABf8mOFiQsLmuNjab4TIw7/Untitled?node-id=0-1&t=uRDSQF3MbhAuHNfd-1)
+[figma 웹디자인은 여기에서 확인해주세요🎨](https://www.figma.com/proto/ABf8mOFiQsLmuNjab4TIw7/Untitled?node-id=0-1&t=uRDSQF3MbhAuHNfd-1)
 
   + **웹 디자인**
   
@@ -159,7 +159,7 @@ https://github.com/GwanhoYun/project_3_MediExpress/blob/856b745111aa3ccd0c67e309
   **윤관호(프로젝트 팀장)**
   
     + UX, UI, 웹페이지 디자인 담당
-    + HTML, CSS, JAVASCRIPT 프론트엔드 담당
+    + HTML, CSS, JAVASCRIPT 프론트엔드 총괄
     + 디지털 리소스 제작, 관리
       
   **장종민**
