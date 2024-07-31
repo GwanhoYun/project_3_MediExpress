@@ -101,7 +101,113 @@
   + **메인 페이지 (index.html)**
 
     1. for 반복문을 사용해 이미지 슬라이드(캐러셀)에 이미지 추가를 위한 li 태그 추가 시, 스크립트 수정 없이도 작동 할 수 있도록 구현함.
-      https://github.com/GwanhoYun/mediExpress/blob/f3c5f99cc616c56e8446818af73f35cfb45286c8/js/index.js#L50-L143
+      ```
+let firstSlide = 1;
+let slideTrigger = true;
+let autoSlideInterval = setInterval(nextSlide, 5000);
+const slides = document.querySelectorAll(".slider-container li");
+const lastSlide = slides.length;
+const presentSlideIndexCount = document.querySelector(".present_slide_index");
+const totalSlideIndexCount = document.querySelector(".total_slide_index");
+const slideCount2Container = document.querySelector(".slide_count_2");
+const slideCount2= document.querySelector(".slide_count_2 div");
+
+
+for(let i = 0; i < lastSlide; i++ ){
+    const createSlideCount2 = document.createElement('div');
+    createSlideCount2.className = 'count_' + (i + 1);
+    slideCount2Container.appendChild(createSlideCount2);
+    createSlideCount2.addEventListener('click', selectSlide);
+}
+
+
+function selectSlide(event) {
+    const className = event.target.className; // 예: 'count_3'
+    const slideIndex = parseInt(className.split('_')[1]); // '3'을 추출하여 숫자로 변환
+    firstSlide = slideIndex; // firstSlide를 현재 슬라이드 인덱스로 설정
+    showSlide(slideIndex); // 슬라이드 표시
+    resetAutoSlide()
+}
+
+
+
+
+function showSlide(slideIndex) {
+    slides.forEach(slide =>{
+        slide.style.display = 'none';
+        slide.style.animation = 'none';
+    });
+    document.querySelector('.slide' + slideIndex).style.display = 'block';
+    document.querySelector('.slide' + slideIndex).style.animation = 'slideAnimation 1s';
+    presentSlideIndexCount.textContent = slideIndex;
+
+
+    document.querySelectorAll('.slide_count_2 div').forEach(countDiv => {
+        if(firstSlide === 1){
+            countDiv.style.backgroundColor = '#999';
+        }else{
+            countDiv.style.backgroundColor = '#0079e9';
+        }   
+    });
+    if(firstSlide === 1){
+        document.querySelector('.count_'+ slideIndex).style.backgroundColor = '#000';
+    }else{
+        document.querySelector('.count_'+ slideIndex).style.backgroundColor = '#fff';
+    }
+    
+}
+totalSlideIndexCount.textContent = lastSlide;
+
+
+function nextSlide() {
+    firstSlide = firstSlide === lastSlide ? 1 : firstSlide + 1;
+    showSlide(firstSlide);
+    resetAutoSlide();
+}
+
+
+function prevSlide() {
+    firstSlide = firstSlide === 1 ? lastSlide : firstSlide - 1;
+    showSlide(firstSlide);
+    resetAutoSlide();
+}
+
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 5000);
+    if(!slideTrigger){
+        slideTrigger = true;
+        document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'block';
+        document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'block';
+        document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'none';
+    }
+}
+
+
+
+
+function slideOnOff() {
+    if (slideTrigger) {
+        clearInterval(autoSlideInterval); // 자동 슬라이드 타이머 제거 (자동 슬라이드 꺼짐)
+        slideTrigger = false; // 자동 슬라이드 상태 변경 (꺼짐)
+        document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'none';
+        document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'none';
+        document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'block';
+    } else {
+        resetAutoSlide(); // 자동 슬라이드 타이머 재설정 (자동 슬라이드 켜짐)
+        slideTrigger = true; // 자동 슬라이드 상태 변경 (켜짐)
+        document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'block';
+        document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'block';
+        document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'none';
+    }
+}
+
+
+document.querySelector(".next").addEventListener('click', nextSlide);
+document.querySelector(".prev").addEventListener('click', prevSlide);
+document.querySelector(".stop_slide").addEventListener('click', slideOnOff)
+      ```
     2. 페이지네이션 도트(인디케이터)를 통해 원하는 배너를 출력할 수 있도록 함.
 
     3. clearInterval()함수를 사용해 배너 정지/시작 기능
