@@ -24,12 +24,7 @@
                             <h4>안녕하세요</h4>
                             <div class="user_name">
                                 <h3>
-                                    <c:if test="${not empty loginUser}">
-                                        ${loginUser}님
-                                    </c:if>
-                                    <c:if test="${empty loginUser}">
-                                        로그인 정보가 없습니다.
-                                    </c:if>
+                                    <p>${sessionScope.loginUser.name}님</p>
                                 </h3>
                               
                             </div>
@@ -129,6 +124,8 @@
         </section>
         <section class="order_list_container">
             <h3 class="title">주문 정보</h3>
+            <c:choose>
+        <c:when test="${not empty boards}">
             <c:forEach items="${boards}" var="board">
                 <div class="order_list">
                     <h3 class="order_date">${board.o_date.year+1900}-${board.o_date.month+1}-${board.o_date.date}</h3>
@@ -193,6 +190,11 @@
                     </div>
                 </div>
             </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <p>주문 내역이 없습니다.</p>
+        </c:otherwise>
+    </c:choose>
         </section>
         <section>
             <div class="move_page">

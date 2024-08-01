@@ -1,6 +1,7 @@
 package org.hj.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -113,13 +114,13 @@ public class MeBoardController {
     }*/
 
     @GetMapping("/all")
-    public String getAllBoards(Model model, HttpSession session) {
+    public String getMyPage(Model model, HttpSession session) {
         System.out.println("Fetching all boards.");
 
-        // 로그인 정보 확인
-        LoginVO loginResult = (LoginVO) session.getAttribute("login");
+        // 세션에서 로그인 정보 확인
+        LoginVO loginResult = (LoginVO) session.getAttribute("loginUser");
         if (loginResult != null) {
-            model.addAttribute("loginUser", loginResult.getName());
+            model.addAttribute("loginUser", loginResult);
             model.addAttribute("loginUserID", loginResult.getId());
             System.out.println("Logged in user: " + loginResult.getName());
 
@@ -130,14 +131,17 @@ public class MeBoardController {
                 System.out.println("Fetched boards: " + boards);
             } else {
                 System.out.println("No boards found.");
+                model.addAttribute("boards", new ArrayList<>()); // 빈 리스트로 설정
             }
         } else {
             System.out.println("No login information in session.");
             model.addAttribute("loginUser", "로그인 필요");
+            model.addAttribute("boards", new ArrayList<>()); // 빈 리스트로 설정
         }
 
         return "list"; // list.jsp로 렌더링
     }
+
 
     @GetMapping("/writeForm")
     public String writeForm() {

@@ -27,10 +27,18 @@
                     </div>
                 </div>
                 <div class="side_menu_top">
-                    <a href="#">로그인</a>
-                    <a href="#">회원가입</a>
-                    <a href="#">마이페이지</a>
-                </div>
+        <c:choose>
+            <c:when test="${not empty sessionScope.loginUser}">
+                <p>${sessionScope.loginUser.name}님 환영합니다!</p> <!-- 로그인된 사용자 이름 출력 -->
+                <a href="${pageContext.request.contextPath}/logout">로그아웃</a>
+                <a href="${pageContext.request.contextPath}/boards/all">마이페이지</a>
+            </c:when>
+            <c:otherwise>
+                <a href="${pageContext.request.contextPath}/login">로그인</a>
+                <a href="${pageContext.request.contextPath}/register">회원가입</a>
+            </c:otherwise>
+        </c:choose>
+    </div>
             </div>
         </div>
         <div class="header_bottom">
