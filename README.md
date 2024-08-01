@@ -21,11 +21,11 @@
 
 ```
 
-SPRINGMEDI
+PROJECT3
 │  .classpath
 │  .project
-│  .springBeans
 │  pom.xml
+│  README.md
 │
 ├─.settings
 │      org.eclipse.core.resources.prefs
@@ -43,37 +43,142 @@ SPRINGMEDI
 │  │  │  └─org
 │  │  │      └─hj
 │  │  │          ├─controller
+│  │  │          │      BuyController.java
+│  │  │          │      DeliveryController.java
 │  │  │          │      HomeController.java
+│  │  │          │      LoginController.java
+│  │  │          │      MeBoardController.java
 │  │  │          │      Medi_BoardController.java
+│  │  │          │      ProductOrderPageController.java
+│  │  │          │      Product_BuyPageController.java
+│  │  │          │      Product_DetailController.java
+│  │  │          │      Product_orderPageController.java
 │  │  │          │
 │  │  │          ├─mapper
+│  │  │          │      BuyMapper.java
+│  │  │          │      DeliveryMapper.java
+│  │  │          │      LoginMapper.java
+│  │  │          │      MeBoardMapper.java
 │  │  │          │      Medi_BoardMapper.java
+│  │  │          │      Product_BuyPageMapper.java
+│  │  │          │      Product_DetailMapper.java
+│  │  │          │      Product_indexMapper.java
+│  │  │          │      Product_OrderPageMapper.java
 │  │  │          │
 │  │  │          ├─model
+│  │  │          │      BuyVO.java
+│  │  │          │      DeliTracVO.java
+│  │  │          │      DeliveryVO.java
+│  │  │          │      LoginVO.java
+│  │  │          │      MeBoardVO.java
 │  │  │          │      Medi_BoardVO.java
+│  │  │          │      Product_BuypageVO.java
+│  │  │          │      Product_DetailVO.java
+│  │  │          │      Product_indexVO.java
+│  │  │          │      Product_OrderPageVO.java
 │  │  │          │
 │  │  │          └─service
+│  │  │                  BuyService.java
+│  │  │                  BuyServiceImpl.java
+│  │  │                  DeliveryService.java
+│  │  │                  DeliveryServicempl.java
+│  │  │                  LoginService.java
+│  │  │                  LoginServiceImpl.java
+│  │  │                  MeBoardService.java
+│  │  │                  MeBoardServiceImpl.java
 │  │  │                  Medi_BoardService.java
 │  │  │                  Medi_BoardServiceImpl.java
+│  │  │                  Product_BuyPageService.java
+│  │  │                  Product_BuyPageServiceImpl.java
+│  │  │                  Product_DetailService.java
+│  │  │                  Product_DetailServiceImpl.java
+│  │  │                  Product_indexService.java
+│  │  │                  Product_indexServiceImpl.java
+│  │  │                  Product_OrderPageService.java
+│  │  │                  Product_OrderPageServiceImpl.java
 │  │  │
 │  │  ├─resources
 │  │  │  │  log4j.xml
 │  │  │  │
-│  │  │  ├─META-INF
 │  │  │  └─org
 │  │  │      └─hj
 │  │  │          └─mapper
+│  │  │                  BuyMapper.xml
+│  │  │                  LoginMapper.xml
+│  │  │                  MeBoardMapper.xml
 │  │  │                  Medi_BoardMapper.xml
+│  │  │                  Product_BuyPageMapper.xml
+│  │  │                  Product_DetailMapper.xml
+│  │  │                  Product_indexMapper.xml
+│  │  │                  Product_OrderPageMapper.xml
 │  │  │
 │  │  └─webapp
 │  │      ├─resources
 │  │      │  ├─css
+│  │      │  │      index.css
+│  │      │  │      mypage.css
+│  │      │  │      ProductOrderpage.css
+│  │      │  │      product_BuyPage.css
+│  │      │  │      Product_detail.css
+│  │      │  │      Product_orderEndPage.css
+│  │      │  │      project3_header_footer.css
+│  │      │  │      shop_login.css
+│  │      │  │
 │  │      │  ├─img
+│  │      │  │      101.jpg
+│  │      │  │      102.jpg
+│  │      │  │      103.jpg
+│  │      │  │      104.jpg
+│  │      │  │      105.jpg
+│  │      │  │      106.jpg
+│  │      │  │      107.jpg
+│  │      │  │      108.jpg
+│  │      │  │      109.jpg
+│  │      │  │      110.jpg
+│  │      │  │      111.jpg
+│  │      │  │      112.jpg
+│  │      │  │      113.jpg
+│  │      │  │      114.jpg
+│  │      │  │      115.jpg
+│  │      │  │      116.jpg
+│  │      │  │      ad_banner.png
+│  │      │  │      all_menu_icon.png
+│  │      │  │      banner1.png
+│  │      │  │      banner2.png
+│  │      │  │      banner3.png
+│  │      │  │      banner4.png
+│  │      │  │      banner_event1.gif
+│  │      │  │      banner_event2.png
+│  │      │  │      banner_event3.png
+│  │      │  │      banner_event4.png
+│  │      │  │      banner_event5.png
+│  │      │  │      benefit1.png
+│  │      │  │      benefit2.png
+│  │      │  │      benefit3.png
+│  │      │  │      benefit4.png
+│  │      │  │      imgLoading.png
+│  │      │  │      logo.png
+│  │      │  │      next-icon-black.png
+│  │      │  │      notice.png
+│  │      │  │      pexels-pixabay-40568.jpg
+│  │      │  │      prev-icon-black.png
+│  │      │  │      search_icon.png
+│  │      │  │      titleIcon.png
+│  │      │  │
 │  │      │  └─js
+│  │      │          index.js
+│  │      │          medi_Product.js
+│  │      │          mypage.js
+│  │      │          product_BuyPage.js
+│  │      │          Product_detail.js
+│  │      │          Product_OrderPage.js
+│  │      │          project3_footer_components.js
+│  │      │          project3_header_components.js
+│  │      │          project3_header_footer.js
+│  │      │
 │  │      └─WEB-INF
 │  │          │  web.xml
 │  │          │
-│  │          ├─classes
 │  │          ├─spring
 │  │          │  │  root-context.xml
 │  │          │  │
@@ -81,14 +186,35 @@ SPRINGMEDI
 │  │          │          servlet-context.xml
 │  │          │
 │  │          └─views
-│  │                  mediProduct.jsp
-│  │                  Testfile.jsp
+│  │              │  boardDetail.jsp
+│  │              │  index.jsp
+│  │              │  list.jsp
+│  │              │  loginco.jsp
+│  │              │  mediProduct.jsp
+│  │              │  product_BuyPage.jsp
+│  │              │  product_Detail.jsp
+│  │              │  Product_orderEndPage.jsp
+│  │              │  Product_OrderPage.jsp
+│  │              │  shop_login.jsp
+│  │              │  ss.jsp
+│  │              │  Testfile.jsp
+│  │              │
+│  │              ├─DELIVERY
+│  │              │      DeliveryInfo.jsp
+│  │              │      Fordelivery.jsp
+│  │              │
+│  │              └─lib
+│  │                      json-simple-1.1.1.jar
+│  │                      mysql-connector-j-8.4.0.jar
+│  │                      taglibs-standard-compat-1.2.5.jar
+│  │                      taglibs-standard-impl-1.2.5.jar
+│  │                      taglibs-standard-jstlel-1.2.5.jar
+│  │                      taglibs-standard-spec-1.2.5.jar
 │  │
 │  └─test
 │      ├─java
 │      │  └─org
 │      │      └─hj
-│      │          ├─controller
 │      │          └─dbtest
 │      │                  DBCPTest.java
 │      │                  JDBC.java
@@ -104,19 +230,67 @@ SPRINGMEDI
     │  └─org
     │      └─hj
     │          ├─controller
+    │          │      BuyController.class
+    │          │      DeliveryController.class
     │          │      HomeController.class
+    │          │      LoginController.class
+    │          │      MeBoardController.class
     │          │      Medi_BoardController.class
+    │          │      ProductOrderPageController.class
+    │          │      Product_BuyPageController.class
+    │          │      Product_DetailController.class
+    │          │      Product_orderPageController.class
     │          │
     │          ├─mapper
+    │          │      BuyMapper.class
+    │          │      BuyMapper.xml
+    │          │      DeliveryMapper.class
+    │          │      LoginMapper.class
+    │          │      LoginMapper.xml
+    │          │      MeBoardMapper.class
+    │          │      MeBoardMapper.xml
     │          │      Medi_BoardMapper.class
     │          │      Medi_BoardMapper.xml
+    │          │      Product_BuyPageMapper.class
+    │          │      Product_BuyPageMapper.xml
+    │          │      Product_DetailMapper.class
+    │          │      Product_DetailMapper.xml
+    │          │      Product_indexMapper.class
+    │          │      Product_indexMapper.xml
+    │          │      Product_OrderPageMapper.class
+    │          │      Product_OrderPageMapper.xml
     │          │
     │          ├─model
+    │          │      BuyVO.class
+    │          │      DeliTracVO.class
+    │          │      DeliveryVO.class
+    │          │      LoginVO.class
+    │          │      MeBoardVO.class
     │          │      Medi_BoardVO.class
+    │          │      Product_BuypageVO.class
+    │          │      Product_DetailVO.class
+    │          │      Product_indexVO.class
+    │          │      Product_OrderPageVO.class
     │          │
     │          └─service
+    │                  BuyService.class
+    │                  BuyServiceImpl.class
+    │                  DeliveryService.class
+    │                  DeliveryServicempl.class
+    │                  LoginService.class
+    │                  LoginServiceImpl.class
+    │                  MeBoardService.class
+    │                  MeBoardServiceImpl.class
     │                  Medi_BoardService.class
     │                  Medi_BoardServiceImpl.class
+    │                  Product_BuyPageService.class
+    │                  Product_BuyPageServiceImpl.class
+    │                  Product_DetailService.class
+    │                  Product_DetailServiceImpl.class
+    │                  Product_indexService.class
+    │                  Product_indexServiceImpl.class
+    │                  Product_OrderPageService.class
+    │                  Product_OrderPageServiceImpl.class
     │
     ├─m2e-wtp
     │  └─web-resources
@@ -134,7 +308,6 @@ SPRINGMEDI
         │
         └─org
             └─hj
-                ├─controller
                 └─dbtest
                         DBCPTest.class
                         JDBC.class
