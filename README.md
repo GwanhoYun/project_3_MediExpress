@@ -484,260 +484,258 @@ PROJECT3
 
 + **상품 페이지 (view_item.html)**
 
-+ 상품 옵션을 선택, 삭제하고 중복된 옵션을 선택할 경우 상품 구매 개수가 늘어나도록 함.
-
-```
-
-function listOnOff(){
-    const itemList = document.querySelector('.option_list');
-    itemList.style.display = (itemList.style.display === "none" || itemList.style.display === "") ? "block" : "none";
-}
-
-let cart = [];
-let totalPrice = 0;
-
-function selectOption(option) {
-    const itemName = option.getAttribute('data-name');
-    const itemPrice = parseInt(option.getAttribute('data-price'), 10);
-
-    // 중복 아이템 확인
-    const existingItem = cart.find(item => item.name === itemName);
-    if (existingItem) {
-        // 수량 증가
-        existingItem.count += 1;
-        // 총 가격 갱신
-        totalPrice += itemPrice;
-    } else {
-        // 새 아이템 추가
-        cart.push({
-            name: itemName,
-            price: itemPrice,
-            count: 1
-        });
-        // 총 가격 갱신
-        totalPrice += itemPrice;
-    }
-
-    // 옵션 목록 토글
-    listOnOff();
-    
-    // 장바구니와 총 가격 업데이트
-    updateCart();
-    updateTotalPrice();
-}
-
-function updateCart() {
-    const cartContainer = document.querySelector('.cart_container');
-    cartContainer.innerHTML = '';
-
-    cart.forEach((item, index) => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('cart_item');
-        itemDiv.innerHTML = `
-            <div>
-                <p>${item.name}</p>
-                <label for="item_count_${index}"></label>
-            </div>
-            <div>
-                <input type="number" id="item_count_${index}" value="${item.count}" min="1" max="99" onchange="updateItemCount(${index}, this.value)">
-            </div>
-            <div>
-                <p>${item.price * item.count}원</p>
-                <button onclick="removeItem(${index})">
-                    <div></div>
-                    <div></div>
-                </button>
-            </div>
-        `;
-        cartContainer.appendChild(itemDiv);
-    });
-}
-
-function updateItemCount(index, newCount) {
-    const item = cart[index];
-    const oldCount = item.count;
-    item.count = parseInt(newCount, 10);
-
-    // 총 가격 갱신
-    totalPrice += (item.count - oldCount) * item.price;
-
-    // 장바구니와 총 가격 업데이트
-    updateCart();
-    updateTotalPrice();
-}
-
-function removeItem(index) {
-    const item = cart[index];
-    totalPrice -= item.price * item.count;
-    cart.splice(index, 1);
-
-    // 장바구니와 총 가격 업데이트
-    updateCart();
-    updateTotalPrice();
-}
-
-function updateTotalPrice() {
-    const totalPriceElement = document.getElementById('total_price');
-    totalPriceElement.textContent = totalPrice;
-}
-
-document.addEventListener('click', function(event) {
-    const listOnOff = document.querySelector('.option_list');
-    const selectBtn = document.querySelector('.select_btn');
-
-    if (listOnOff.style.display === 'block' && !listOnOff.contains(event.target) && !selectBtn.contains(event.target)) {
-        listOnOff.style.display = 'none';
-    }
-});
-
-```
-  + **주문 페이지 (order_page.html)**
+      + 상품 옵션을 선택, 삭제하고 중복된 옵션을 선택할 경우 상품 구매 개수가 늘어나도록 함.
+      
+      ```
+      
+      function listOnOff(){
+          const itemList = document.querySelector('.option_list');
+          itemList.style.display = (itemList.style.display === "none" || itemList.style.display === "") ? "block" : "none";
+      }
+      
+      let cart = [];
+      let totalPrice = 0;
+      
+      function selectOption(option) {
+          const itemName = option.getAttribute('data-name');
+          const itemPrice = parseInt(option.getAttribute('data-price'), 10);
+      
+          // 중복 아이템 확인
+          const existingItem = cart.find(item => item.name === itemName);
+          if (existingItem) {
+              // 수량 증가
+              existingItem.count += 1;
+              // 총 가격 갱신
+              totalPrice += itemPrice;
+          } else {
+              // 새 아이템 추가
+              cart.push({
+                  name: itemName,
+                  price: itemPrice,
+                  count: 1
+              });
+              // 총 가격 갱신
+              totalPrice += itemPrice;
+          }
+      
+          // 옵션 목록 토글
+          listOnOff();
+          
+          // 장바구니와 총 가격 업데이트
+          updateCart();
+          updateTotalPrice();
+      }
+      
+      function updateCart() {
+          const cartContainer = document.querySelector('.cart_container');
+          cartContainer.innerHTML = '';
+      
+          cart.forEach((item, index) => {
+              const itemDiv = document.createElement('div');
+              itemDiv.classList.add('cart_item');
+              itemDiv.innerHTML = `
+                  <div>
+                      <p>${item.name}</p>
+                      <label for="item_count_${index}"></label>
+                  </div>
+                  <div>
+                      <input type="number" id="item_count_${index}" value="${item.count}" min="1" max="99" onchange="updateItemCount(${index}, this.value)">
+                  </div>
+                  <div>
+                      <p>${item.price * item.count}원</p>
+                      <button onclick="removeItem(${index})">
+                          <div></div>
+                          <div></div>
+                      </button>
+                  </div>
+              `;
+              cartContainer.appendChild(itemDiv);
+          });
+      }
+      
+      function updateItemCount(index, newCount) {
+          const item = cart[index];
+          const oldCount = item.count;
+          item.count = parseInt(newCount, 10);
+      
+          // 총 가격 갱신
+          totalPrice += (item.count - oldCount) * item.price;
+      
+          // 장바구니와 총 가격 업데이트
+          updateCart();
+          updateTotalPrice();
+      }
+      
+      function removeItem(index) {
+          const item = cart[index];
+          totalPrice -= item.price * item.count;
+          cart.splice(index, 1);
+      
+          // 장바구니와 총 가격 업데이트
+          updateCart();
+          updateTotalPrice();
+      }
+      
+      function updateTotalPrice() {
+          const totalPriceElement = document.getElementById('total_price');
+          totalPriceElement.textContent = totalPrice;
+      }
+      
+      document.addEventListener('click', function(event) {
+          const listOnOff = document.querySelector('.option_list');
+          const selectBtn = document.querySelector('.select_btn');
+      
+          if (listOnOff.style.display === 'block' && !listOnOff.contains(event.target) && !selectBtn.contains(event.target)) {
+              listOnOff.style.display = 'none';
+          }
+      });
+      
+      ```
++ **주문 페이지 (order_page.html)**
 
     + 주문 정보의 가격으로 상품 금액이 계산되도록 함.
 
     + 쿠폰/ 포인트가 총 결제 예상금액에 반영됨.((상품 금액-사용 포인트)*쿠폰 할인률=지불 금액)
 
     + 포인트는 총 결제 예상금액의 1% 만큼 계산되도록 함.
-```
-    
-// 숫자에 천 단위 구분 기호를 추가하는 함수
-function formatNumber(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-// 포인트와 총 금액을 비교하고 오류 메시지를 표시하는 함수
-function validatePoints() {
-    const totalItemPriceElement = document.querySelector('.total_item_price');
-    const totalItemPrice = parseFloat(totalItemPriceElement.textContent.replace(/,/g, '')) || 0;
-    
-    const pointInput = document.querySelector('.point_input');
-    const inputPoint = parseFloat(pointInput.value) || 0;
-    
-    const errorMessage = document.querySelector('.error_message');
-
-    if (inputPoint > totalItemPrice) {
-        // 포인트가 총 금액을 초과하는 경우
-        errorMessage.style.display = 'block';
-        pointInput.value = totalItemPrice; // 입력값을 총 금액으로 설정
-    } else {
-        // 포인트가 총 금액을 초과하지 않는 경우
-        errorMessage.style.display = 'none';
+    ```
+        
+    // 숫자에 천 단위 구분 기호를 추가하는 함수
+    function formatNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-
-    // 포인트가 초과된 경우 자동으로 포인트 재계산
-    updatePricesAndPoints();
-}
-
-// 포인트 입력 필드의 값이 변경될 때마다 검증
-document.querySelector('.point_input').addEventListener('input', function() {
-    // 음수 입력 방지
-    this.value = this.value.replace(/[^0-9]/g, ''); // 숫자 외의 모든 문자 제거
-    validatePoints();
-});
-
-// 쿠폰 선택 시 호출되는 함수
-document.querySelector('.select_coupon').addEventListener('change', function() {
-    updatePricesAndPoints();
-});
-
-// 페이지 로드 시 총 물건 가격, 할인, 결제 금액 및 적립 포인트를 초기화합니다
-document.addEventListener("DOMContentLoaded", function () {
-    let sum = 0;
-
-    // index는 1부터 시작하므로 1부터 시작하는 루프를 작성
-    for (let i = 1; ; i++) {
-        // price_[index] 요소를 찾음
-        const priceElement = document.querySelector(`.price_${i}`);
-        if (!priceElement) break; // 더 이상 요소가 없으면 루프를 종료
-
-        // saving_point_[index] 요소를 찾음
-        const savingPointElement = document.querySelector(`.saving_point_${i}`);
-        if (!savingPointElement) break;
-
-        // price 값을 가져와서 총 가격을 계산
-        const priceValue = parseFloat(priceElement.textContent.replace(/,/g, ''));
-        if (!isNaN(priceValue)) {
-            sum += priceValue;
-        }
-
-        // 포인트 계산 (가격의 1%로 가정)
-        const savingPointValue = Math.ceil(priceValue / 100);
-
-        // 총 물건 가격 요소에 총 가격을 설정
+    
+    // 포인트와 총 금액을 비교하고 오류 메시지를 표시하는 함수
+    function validatePoints() {
         const totalItemPriceElement = document.querySelector('.total_item_price');
-        if (totalItemPriceElement) {
-            totalItemPriceElement.textContent = formatNumber(sum);
+        const totalItemPrice = parseFloat(totalItemPriceElement.textContent.replace(/,/g, '')) || 0;
+        
+        const pointInput = document.querySelector('.point_input');
+        const inputPoint = parseFloat(pointInput.value) || 0;
+        
+        const errorMessage = document.querySelector('.error_message');
+    
+        if (inputPoint > totalItemPrice) {
+            // 포인트가 총 금액을 초과하는 경우
+            errorMessage.style.display = 'block';
+            pointInput.value = totalItemPrice; // 입력값을 총 금액으로 설정
+        } else {
+            // 포인트가 총 금액을 초과하지 않는 경우
+            errorMessage.style.display = 'none';
         }
-
-        // saving_point 요소에 포인트 값을 설정
-        savingPointElement.textContent = formatNumber(savingPointValue);
+    
+        // 포인트가 초과된 경우 자동으로 포인트 재계산
+        updatePricesAndPoints();
     }
-
-    // 할인 가격 및 결제 금액을 계산 및 업데이트
-    updatePricesAndPoints();
-});
-
-// 가격과 포인트를 업데이트하는 함수
-function updatePricesAndPoints() {
-    // 총 물건 가격을 숫자로 가져옵니다
-    const totalItemPriceText = document.querySelector('.total_item_price').textContent;
-    const totalItemPrice = parseFloat(totalItemPriceText.replace(/,/g, '')) || 0;
-
-    // 쿠폰 선택 요소를 가져오고 선택된 값을 숫자로 변환합니다
-    const selectedCouponElement = document.querySelector('.select_coupon');
-    const selectedCouponValue = parseFloat(selectedCouponElement.value) || 0;
-
-    // 사용자의 포인트를 가져오고 숫자로 변환합니다
-    const inputPoint = parseFloat(document.querySelector('.point_input').value) || 0;
-
-    // 포인트 할인 금액을 설정합니다
-    const usedPointDiscountPriceElement = document.querySelector('.used_point_discount_price');
-    const usedPointDiscountPrice = Math.min(inputPoint, totalItemPrice);
-    if (usedPointDiscountPriceElement) {
-        usedPointDiscountPriceElement.textContent = formatNumber(usedPointDiscountPrice.toFixed(0));
+    
+    // 포인트 입력 필드의 값이 변경될 때마다 검증
+    document.querySelector('.point_input').addEventListener('input', function() {
+        // 음수 입력 방지
+        this.value = this.value.replace(/[^0-9]/g, ''); // 숫자 외의 모든 문자 제거
+        validatePoints();
+    });
+    
+    // 쿠폰 선택 시 호출되는 함수
+    document.querySelector('.select_coupon').addEventListener('change', function() {
+        updatePricesAndPoints();
+    });
+    
+    // 페이지 로드 시 총 물건 가격, 할인, 결제 금액 및 적립 포인트를 초기화합니다
+    document.addEventListener("DOMContentLoaded", function () {
+        let sum = 0;
+    
+        // index는 1부터 시작하므로 1부터 시작하는 루프를 작성
+        for (let i = 1; ; i++) {
+            // price_[index] 요소를 찾음
+            const priceElement = document.querySelector(`.price_${i}`);
+            if (!priceElement) break; // 더 이상 요소가 없으면 루프를 종료
+    
+            // saving_point_[index] 요소를 찾음
+            const savingPointElement = document.querySelector(`.saving_point_${i}`);
+            if (!savingPointElement) break;
+    
+            // price 값을 가져와서 총 가격을 계산
+            const priceValue = parseFloat(priceElement.textContent.replace(/,/g, ''));
+            if (!isNaN(priceValue)) {
+                sum += priceValue;
+            }
+    
+            // 포인트 계산 (가격의 1%로 가정)
+            const savingPointValue = Math.ceil(priceValue / 100);
+    
+            // 총 물건 가격 요소에 총 가격을 설정
+            const totalItemPriceElement = document.querySelector('.total_item_price');
+            if (totalItemPriceElement) {
+                totalItemPriceElement.textContent = formatNumber(sum);
+            }
+    
+            // saving_point 요소에 포인트 값을 설정
+            savingPointElement.textContent = formatNumber(savingPointValue);
+        }
+    
+        // 할인 가격 및 결제 금액을 계산 및 업데이트
+        updatePricesAndPoints();
+    });
+    
+    // 가격과 포인트를 업데이트하는 함수
+    function updatePricesAndPoints() {
+        // 총 물건 가격을 숫자로 가져옵니다
+        const totalItemPriceText = document.querySelector('.total_item_price').textContent;
+        const totalItemPrice = parseFloat(totalItemPriceText.replace(/,/g, '')) || 0;
+    
+        // 쿠폰 선택 요소를 가져오고 선택된 값을 숫자로 변환합니다
+        const selectedCouponElement = document.querySelector('.select_coupon');
+        const selectedCouponValue = parseFloat(selectedCouponElement.value) || 0;
+    
+        // 사용자의 포인트를 가져오고 숫자로 변환합니다
+        const inputPoint = parseFloat(document.querySelector('.point_input').value) || 0;
+    
+        // 포인트 할인 금액을 설정합니다
+        const usedPointDiscountPriceElement = document.querySelector('.used_point_discount_price');
+        const usedPointDiscountPrice = Math.min(inputPoint, totalItemPrice);
+        if (usedPointDiscountPriceElement) {
+            usedPointDiscountPriceElement.textContent = formatNumber(usedPointDiscountPrice.toFixed(0));
+        }
+    
+        // 쿠폰 할인 금액을 계산합니다
+        const discountPriceElement = document.querySelector('.discount_price');
+        let couponDiscountPrice = 0;
+    
+        if (selectedCouponValue > 0) {
+            // 쿠폰이 선택된 경우: (총 가격 - 포인트) * 쿠폰 할인율
+            couponDiscountPrice = (totalItemPrice - usedPointDiscountPrice) * selectedCouponValue;
+        }
+        if (discountPriceElement) {
+            discountPriceElement.textContent = formatNumber(couponDiscountPrice.toFixed(0));
+        }
+    
+        // 결제 금액 계산 및 업데이트
+        const paymentAmountElement = document.querySelector('.total_price');
+        const discountAmountValue = parseFloat(discountPriceElement.textContent.replace(/,/g, '')) || 0;
+        const finalPrice = totalItemPrice - usedPointDiscountPrice - discountAmountValue;
+        if (paymentAmountElement) {
+            paymentAmountElement.textContent = formatNumber(finalPrice.toFixed(0));
+        }
+    
+        // 총 적립 포인트 계산 및 업데이트
+        const totalSavingPointElement = document.querySelector('.total_saving_point');
+        if (totalSavingPointElement) {
+            const savingPointValue = (finalPrice * 0.01).toFixed(0); // 결제 금액의 1%를 적립 포인트로 계산
+            totalSavingPointElement.textContent = formatNumber(savingPointValue);
+        }
     }
-
-    // 쿠폰 할인 금액을 계산합니다
-    const discountPriceElement = document.querySelector('.discount_price');
-    let couponDiscountPrice = 0;
-
-    if (selectedCouponValue > 0) {
-        // 쿠폰이 선택된 경우: (총 가격 - 포인트) * 쿠폰 할인율
-        couponDiscountPrice = (totalItemPrice - usedPointDiscountPrice) * selectedCouponValue;
-    }
-    if (discountPriceElement) {
-        discountPriceElement.textContent = formatNumber(couponDiscountPrice.toFixed(0));
-    }
-
-    // 결제 금액 계산 및 업데이트
-    const paymentAmountElement = document.querySelector('.total_price');
-    const discountAmountValue = parseFloat(discountPriceElement.textContent.replace(/,/g, '')) || 0;
-    const finalPrice = totalItemPrice - usedPointDiscountPrice - discountAmountValue;
-    if (paymentAmountElement) {
-        paymentAmountElement.textContent = formatNumber(finalPrice.toFixed(0));
-    }
-
-    // 총 적립 포인트 계산 및 업데이트
-    const totalSavingPointElement = document.querySelector('.total_saving_point');
-    if (totalSavingPointElement) {
-        const savingPointValue = (finalPrice * 0.01).toFixed(0); // 결제 금액의 1%를 적립 포인트로 계산
-        totalSavingPointElement.textContent = formatNumber(savingPointValue);
-    }
-}
-
-```
-
-  + **구매 완료 페이지 (buy.html)**
+    
+    ```
++ **구매 완료 페이지 (buy.html)**
 
     + 로딩 후 구매가 완료되는 것처럼 보이게 함.
-
-![p3 buy1](https://github.com/user-attachments/assets/a336a5aa-0eeb-4bd8-8e99-1d2cb7cd4178)
-![p3 buy2](https://github.com/user-attachments/assets/ba5df46e-16dc-4058-9fb0-fa7855acc62e)
-
 
     + 이미지 파일 없이 div요소로 아이콘 제작.
 
     + keyframes로 애니메이션 추가.
+
+    ![p3 buy1](https://github.com/user-attachments/assets/a336a5aa-0eeb-4bd8-8e99-1d2cb7cd4178)
+    ![p3 buy2](https://github.com/user-attachments/assets/ba5df46e-16dc-4058-9fb0-fa7855acc62e)
 
 - - - - -
 ## 구현 예시 (백엔드)
