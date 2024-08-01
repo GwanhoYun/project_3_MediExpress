@@ -14,10 +14,10 @@
 💀실제 구현한 기능과 차이가 있을 수 있습니다.💀
 
 - - - - -
-## MySQL - ERD
+## 👨‍💻MySQL - ERD
 ![image](https://github.com/user-attachments/assets/fe01994a-7316-41ca-8ac9-8ea245aa79cd)
 - - - - -
-## file tree
+## 🛠File tree
 
 ```
 
