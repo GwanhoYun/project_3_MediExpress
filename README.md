@@ -756,6 +756,7 @@ PROJECT3
     https://github.com/GwanhoYun/project_3_MediExpress/blob/a8c2281561c6188f2cc7e3eeb34ddc8d35568d85/src/main/java/org/hj/model/DeliveryVO.java#L1-L12
     배송 상태 출력 jsp 코드
     https://github.com/GwanhoYun/project_3_MediExpress/blob/fceb3bbb37b8a8359cf2e547fac15c422dfdd1e6/src/main/webapp/WEB-INF/views/DELIVERY/DeliveryInfo.jsp#L109-L118
+    ![배달 리스트 페이지](https://github.com/user-attachments/assets/b4dd7498-dfdc-453d-99e5-e621f019935e)
 
 
 - - - - -
