@@ -754,6 +754,7 @@ PROJECT3
 
     d_complete 값을 가져오는 모델 boolean타입이 아닌 Boolean 타입으로 가져온다. (boolean타입은 null값 허용x)
     https://github.com/GwanhoYun/project_3_MediExpress/blob/a8c2281561c6188f2cc7e3eeb34ddc8d35568d85/src/main/java/org/hj/model/DeliveryVO.java#L1-L12
+    
     배송 상태 출력 jsp 코드
     https://github.com/GwanhoYun/project_3_MediExpress/blob/fceb3bbb37b8a8359cf2e547fac15c422dfdd1e6/src/main/webapp/WEB-INF/views/DELIVERY/DeliveryInfo.jsp#L109-L118
     ![배달 리스트 페이지](https://github.com/user-attachments/assets/b4dd7498-dfdc-453d-99e5-e621f019935e)
@@ -767,14 +768,34 @@ PROJECT3
 
      카카오API 맵 생성, 공용hub, 목적지 주소 폴리곤 영역 생성
      https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/webapp/WEB-INF/views/DELIVERY/Fordelivery.jsp#L129-L250
+    
      배송 시작 버튼을 누르면 접속 위치를 실시간으로 표시
      https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/webapp/WEB-INF/views/DELIVERY/Fordelivery.jsp#L257-L328
+    
      배송을 시작한 시간, 허브 도착시간, 허브 이름 , 허브에서 출발 시간, 목적지 도착시간을 전송
      https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/webapp/WEB-INF/views/DELIVERY/Fordelivery.jsp#L406-L501
      https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/java/org/hj/controller/DeliveryController.java#L75-L122
      ![출발](https://github.com/user-attachments/assets/ebc6087b-1eea-474c-96e5-2da724489fc4)
      ![허브](https://github.com/user-attachments/assets/f96ab3ee-10cb-494d-8ab5-b52124cf7c32)
      ![배달 완](https://github.com/user-attachments/assets/c3b79f19-f0da-42c2-91e2-6b687f3e1b5c)
+
+
++ **주문 상세보기 페이지 - 배송 추적현황, 실시간 위치확인 기능**
+  + 출발시간, 도착시간 등 해당 주문의 배송 현황을 확인 가능 
+  + 택배기사의 좌표값을 가져와 실시간 위치 확인 가능
+
+     ajax를 사용해 해당 송장 번호의 출발, 도착 기록의 데이터를 가져와서 배송 현황 출력
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/26801f48c981862afd961f093d6a6537d20242e6/src/main/webapp/WEB-INF/views/boardDetail.jsp#L180-L247
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/26801f48c981862afd961f093d6a6537d20242e6/src/main/java/org/hj/controller/DeliveryController.java#L45-L53
+
+     도착 기록이없고 배송중인 상태라면, 택배기사의 좌표값을 가져와 실시간 위치 확인 가능
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/26801f48c981862afd961f093d6a6537d20242e6/src/main/webapp/WEB-INF/views/boardDetail.jsp#L249-L310
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/26801f48c981862afd961f093d6a6537d20242e6/src/main/java/org/hj/controller/DeliveryController.java#L55-L63
+
+     ![배송 현황 추적](https://github.com/user-attachments/assets/c2bdeb9e-8516-4991-8c5f-304e6122278d)
+     ![택배기사 실시간 위치 확인](https://github.com/user-attachments/assets/e67de507-f65e-4a6b-ab33-cd7c6b662b57)
+
+          
 
 - - - - -
   ## 구현 예시 (백엔드)
