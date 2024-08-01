@@ -591,7 +591,6 @@ document.addEventListener('click', function(event) {
 });
 
 ```
-   
   + **주문 페이지 (order_page.html)**
 
     + 주문 정보의 가격으로 상품 금액이 계산되도록 함.
@@ -599,8 +598,7 @@ document.addEventListener('click', function(event) {
     + 쿠폰/ 포인트가 총 결제 예상금액에 반영됨.((상품 금액-사용 포인트)*쿠폰 할인률=지불 금액)
 
     + 포인트는 총 결제 예상금액의 1% 만큼 계산되도록 함.
-
-    ```
+```
     
 // 숫자에 천 단위 구분 기호를 추가하는 함수
 function formatNumber(number) {
@@ -727,7 +725,7 @@ function updatePricesAndPoints() {
     }
 }
 
-    ```
+```
 
   + **구매 완료 페이지 (buy.html)**
 
