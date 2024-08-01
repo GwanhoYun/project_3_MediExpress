@@ -26,7 +26,6 @@ public class LoginController {
         return "shop_login";
     }
 
-    // 로그인 처리
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session, RedirectAttributes redirectAttributes) {
         LoginVO loginVO = new LoginVO();
@@ -36,14 +35,13 @@ public class LoginController {
         LoginVO member = loginService.login(loginVO);
 
         if (member != null) {
-            session.setAttribute("login", member); // 세션에 로그인 정보 저장
-            return "redirect:/loginco";
+            session.setAttribute("loginUser", member); // 세션에 로그인 정보 저장
+            return "redirect:/"; // 로그인 후 메인 페이지로 리디렉션
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "Invalid username or password");
-            return "redirect:/login";
+            return "redirect:/login"; // 로그인 실패 시 로그인 페이지로 리디렉션
         }
     }
-
  // 사용자 정보 페이지 매핑
     @RequestMapping(value = "/loginco", method = RequestMethod.GET)
     public String userInfo(HttpSession session, Model model) {
