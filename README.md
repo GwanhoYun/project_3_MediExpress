@@ -15,7 +15,7 @@
 
 - - - - -
 ## 👨‍💻MySQL - ERD
-![image](https://github.com/user-attachments/assets/fe01994a-7316-41ca-8ac9-8ea245aa79cd)
+![image](https://github.com/user-attachments/assets/7ba9ec1d-4177-44f0-8eba-9106c3ec5ac8)
 - - - - -
 ## 🛠File tree
 
