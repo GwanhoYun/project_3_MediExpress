@@ -750,7 +750,7 @@ PROJECT3
 + **택배기사 전용 페이지**
   + 배송할 내용의 데이터를 가져와 리스트화
   + 배송 상태는 데이터베이스의 d_complete(배달 완료 여부)의 값이 null이면 미승인, false면 배송 시작 버튼, true일때는 배송완료가 출력.
-  + 배송 시작 버튼을 누르면 해당 송장번호의 데이터를 가지고 페이지 이동
+  + 배송 시작 버튼을 누르면 해당 송장번호의 데이터를 가지고 배송 시작 페이지 이동
 
     d_complete 값을 가져오는 모델 boolean타입이 아닌 Boolean 타입으로 가져온다. (boolean타입은 null값 허용x)
     https://github.com/GwanhoYun/project_3_MediExpress/blob/a8c2281561c6188f2cc7e3eeb34ddc8d35568d85/src/main/java/org/hj/model/DeliveryVO.java#L1-L12
@@ -758,6 +758,23 @@ PROJECT3
     https://github.com/GwanhoYun/project_3_MediExpress/blob/fceb3bbb37b8a8359cf2e547fac15c422dfdd1e6/src/main/webapp/WEB-INF/views/DELIVERY/DeliveryInfo.jsp#L109-L118
     ![배달 리스트 페이지](https://github.com/user-attachments/assets/b4dd7498-dfdc-453d-99e5-e621f019935e)
 
+    
++ **배송시작 페이지**
+  + 송장번호를 데이터 베이스에 가져가서 해당 송장번호의 배송 데이터를 검색(select) , 수주 번호 주문자ID 목적지(주소)를 가져와서 페이지에 출력
+  + 카카오API 라이브러리를 활용해 배송을 도와주는 맵 생성. 임의로 만든 공영HUB 폴리곤 영역, 목적지의 좌표를 검색하고 좌표 검색결과를 지도 위에 마커로 표시, 해당 마커 주위에 작은 폴리곤 영역을 자동으로 생성
+  + 배송 시작을 누르면 HTML5 GeoLocation 를 활용해 실시간으로 접속 위치를 마커로 표시하고 택배기사 위치확인을 위해 해당 마커의 좌표를 배달GPS 데이터베이스에 최신화(update)함 
+  + 배송 시작 버튼을 누르거나 택배기사의 위치(마커)가 중간지점hub나 목적지에 도착하면 ajax를 사용해 배송 추적 데이터베이스에 배송을 시작한 시간, 허브 도착시간, 허브 이름 , 허브에서 출발 시간, 목적지 도착시간을 전송
+
+     카카오API 맵 생성, 공용hub, 목적지 주소 폴리곤 영역 생성
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/webapp/WEB-INF/views/DELIVERY/Fordelivery.jsp#L129-L250
+     배송 시작 버튼을 누르면 접속 위치를 실시간으로 표시
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/webapp/WEB-INF/views/DELIVERY/Fordelivery.jsp#L257-L328
+     배송을 시작한 시간, 허브 도착시간, 허브 이름 , 허브에서 출발 시간, 목적지 도착시간을 전송
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/webapp/WEB-INF/views/DELIVERY/Fordelivery.jsp#L406-L501
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/java/org/hj/controller/DeliveryController.java#L75-L122
+     ![출발](https://github.com/user-attachments/assets/ebc6087b-1eea-474c-96e5-2da724489fc4)
+     ![허브](https://github.com/user-attachments/assets/f96ab3ee-10cb-494d-8ab5-b52124cf7c32)
+     ![배달 완](https://github.com/user-attachments/assets/c3b79f19-f0da-42c2-91e2-6b687f3e1b5c)
 
 - - - - -
   ## 구현 예시 (백엔드)
