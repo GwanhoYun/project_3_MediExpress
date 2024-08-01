@@ -415,71 +415,71 @@ PROJECT3
 
     + for 반복문을 사용해 이미지 슬라이드(캐러셀)에 이미지 추가를 위한 li 태그 추가 시, 스크립트 수정 없이도 작동 할 수 있도록 구현함.
 
-```
-
-const slides = document.querySelectorAll(".slider-container li");
-const lastSlide = slides.length; // 전체 슬라이드 개수를 계산합니다.
-const slideCount2Container = document.querySelector(".slide_count_2"); // 페이지네이션 도트 관련된 요소입니다.
-
-for (let i = 0; i < lastSlide; i++) {
-    const createSlideCount2 = document.createElement('div'); // 페이지네이션 도트 태그(<div>)를 생성합니다.
-    createSlideCount2.className = 'count_' + (i + 1); // 페이지네이션 도트 div의 className을 지정합니다.
-    slideCount2Container.appendChild(createSlideCount2); // 위에서 생성한 요소를 추가합니다. 예: <div class="count_[index]">
-    createSlideCount2.addEventListener('click', selectSlide); // click 이벤트를 추가합니다.
-}
-
-```
+    ```
     
-+ 페이지네이션 도트(인디케이터)를 통해 수동으로 원하는 배너를 출력할 수 있도록 함.
-
-```
-
-let showSlideIndex = 1;
-
-function selectSlide(event) {
-    const className = event.target.className; // 예: 'count_1'
-    const slideIndex = parseInt(className.split('_')[1]); // '1'을 추출하여 숫자로 변환합니다.
-    showSlideIndex = slideIndex; // showSlideIndex를 현재 슬라이드 인덱스로 설정합니다.
-    showSlide(slideIndex); // 슬라이드를 표시합니다.
-    resetAutoSlide(); // clearInterval로 "autoSlideInterval"의 setInterval(nextSlide, 5000)을 초기화하고 다시 생성합니다.
-}                    // 캐러셀 슬라이드를 수동으로 넘길 때 5초 쿨타임을 초기화하여 슬라이드가 두 번 넘어가지 않도록 합니다.
+    const slides = document.querySelectorAll(".slider-container li");
+    const lastSlide = slides.length; // 전체 슬라이드 개수를 계산합니다.
+    const slideCount2Container = document.querySelector(".slide_count_2"); // 페이지네이션 도트 관련된 요소입니다.
     
-```
-
-+ clearInterval()함수를 사용해 배너 정지/시작 기능
-
-```
-
-function resetAutoSlide() { // 5초마다 넘기는 setInterval을 초기화합니다.
-    clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(nextSlide, 5000);
-    if (!slideTrigger) { // 슬라이드를 정지한 상태로 수동 이동하면 정지가 풀리도록 합니다.
-        slideTrigger = true; // 재생 상태로 변경합니다.
-        document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'block'; // 정지 아이콘을 재생 아이콘으로 변경합니다.
-        document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'block';
-        document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'none';
+    for (let i = 0; i < lastSlide; i++) {
+        const createSlideCount2 = document.createElement('div'); // 페이지네이션 도트 태그(<div>)를 생성합니다.
+        createSlideCount2.className = 'count_' + (i + 1); // 페이지네이션 도트 div의 className을 지정합니다.
+        slideCount2Container.appendChild(createSlideCount2); // 위에서 생성한 요소를 추가합니다. 예: <div class="count_[index]">
+        createSlideCount2.addEventListener('click', selectSlide); // click 이벤트를 추가합니다.
     }
-}
-
-function slideOnOff() {
-    if (slideTrigger) {
-        clearInterval(autoSlideInterval); // 자동 슬라이드를 끕니다.
-        slideTrigger = false; // 자동 슬라이드 상태를 변경합니다.
-        document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'none'; // 재생 아이콘을 정지 아이콘으로 변경합니다.
-        document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'none';
-        document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'block';
-    } else {
-        resetAutoSlide();
-        slideTrigger = true;
-        document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'block';
-        document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'block';
-        document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'none';
+    
+    ```
+        
+    + 페이지네이션 도트(인디케이터)를 통해 수동으로 원하는 배너를 출력할 수 있도록 함.
+    
+    ```
+    
+    let showSlideIndex = 1;
+    
+    function selectSlide(event) {
+        const className = event.target.className; // 예: 'count_1'
+        const slideIndex = parseInt(className.split('_')[1]); // '1'을 추출하여 숫자로 변환합니다.
+        showSlideIndex = slideIndex; // showSlideIndex를 현재 슬라이드 인덱스로 설정합니다.
+        showSlide(slideIndex); // 슬라이드를 표시합니다.
+        resetAutoSlide(); // clearInterval로 "autoSlideInterval"의 setInterval(nextSlide, 5000)을 초기화하고 다시 생성합니다.
+    }                    // 캐러셀 슬라이드를 수동으로 넘길 때 5초 쿨타임을 초기화하여 슬라이드가 두 번 넘어가지 않도록 합니다.
+        
+    ```
+    
+    + clearInterval()함수를 사용해 배너 정지/시작 기능
+    
+    ```
+    
+    function resetAutoSlide() { // 5초마다 넘기는 setInterval을 초기화합니다.
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+        if (!slideTrigger) { // 슬라이드를 정지한 상태로 수동 이동하면 정지가 풀리도록 합니다.
+            slideTrigger = true; // 재생 상태로 변경합니다.
+            document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'block'; // 정지 아이콘을 재생 아이콘으로 변경합니다.
+            document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'block';
+            document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'none';
+        }
     }
-}
-
-```
-   
-+ 재사용 가능성이 높은 부분은 컴포넌트화하여 재사용성을 높힘.(component폴더 참고)
+    
+    function slideOnOff() {
+        if (slideTrigger) {
+            clearInterval(autoSlideInterval); // 자동 슬라이드를 끕니다.
+            slideTrigger = false; // 자동 슬라이드 상태를 변경합니다.
+            document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'none'; // 재생 아이콘을 정지 아이콘으로 변경합니다.
+            document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'none';
+            document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'block';
+        } else {
+            resetAutoSlide();
+            slideTrigger = true;
+            document.querySelector('.stop_slide_btn div:nth-child(1)').style.display = 'block';
+            document.querySelector('.stop_slide_btn div:nth-child(2)').style.display = 'block';
+            document.querySelector('.stop_slide_btn div:nth-child(3)').style.display = 'none';
+        }
+    }
+    
+    ```
+       
+    + 재사용 가능성이 높은 부분은 컴포넌트화하여 재사용성을 높힘.(component폴더 참고)
 
 
 + **상품 페이지 (view_item.html)**
