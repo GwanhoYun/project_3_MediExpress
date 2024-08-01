@@ -8,8 +8,17 @@
 **웹 페이지 샘플은 다음과 같은 기능을 체험할 수 있습니다.**
 
 + 메인페이지 - 마이페이지 - 구매 내역
+  
+![p3 menu](https://github.com/user-attachments/assets/a3aca647-8f7a-43e2-af95-bc89ddb80966)
+
 + 드롭다운 전체 메뉴 - 의료소모품 - 주사기/주사침 - 일회용 주사기 구매 탭 - 바로 구매 - 쿠폰/포인트 & 주문하기
+
+![p3 menu2](https://github.com/user-attachments/assets/a8cee4c3-d9e5-4d78-9fdc-b88908a486f1)
+
 + 의료소모품 메뉴 - 주사기/주사침 - 일회용 주사기 구매 탭 - 바로 구매 - 쿠폰/포인트 & 주문하기
+
+![order](https://github.com/user-attachments/assets/e56cd25a-b8a8-410b-9cab-c11ba34ee56f)
+
    
 💀실제 구현한 기능과 차이가 있을 수 있습니다.💀
 
@@ -398,6 +407,9 @@ PROJECT3
     + 1440px 기준 12colums, gutter 20px, margin 60px 기준 적응형 웹으로 디자인 함.
 
     + 배너 이미지는 직접 제작 (글로벌메디컬대학병원 배너는 이미지 가공함)
+
+   ![p3Figma](https://github.com/user-attachments/assets/462b7270-3c4d-490b-937d-94b1d49b45a7)
+
     
   + **메인 페이지 (index.html)**
 
@@ -410,6 +422,8 @@ PROJECT3
     + 재사용 가능성이 높은 부분은 컴포넌트화하여 재사용성을 높힘.(component폴더 참고)
 
 https://github.com/GwanhoYun/project_3_MediExpress/blob/856b745111aa3ccd0c67e30941dd65e7eb235673/src/main/webapp/resources/js/index.js#L50-L143
+
+
 
   + **상품 페이지 (view_item.html)**
 
@@ -426,6 +440,10 @@ https://github.com/GwanhoYun/project_3_MediExpress/blob/856b745111aa3ccd0c67e309
   + **구매 완료 페이지 (buy.html)**
 
     + 로딩 후 구매가 완료되는 것처럼 보이게 함.
+
+![p3 buy1](https://github.com/user-attachments/assets/a336a5aa-0eeb-4bd8-8e99-1d2cb7cd4178)
+![p3 buy2](https://github.com/user-attachments/assets/ba5df46e-16dc-4058-9fb0-fa7855acc62e)
+
 
     + 이미지 파일 없이 div요소로 아이콘 제작.
 
