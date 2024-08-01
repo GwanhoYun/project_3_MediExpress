@@ -757,6 +757,8 @@ PROJECT3
     
     배송 상태 출력 jsp 코드
     https://github.com/GwanhoYun/project_3_MediExpress/blob/fceb3bbb37b8a8359cf2e547fac15c422dfdd1e6/src/main/webapp/WEB-INF/views/DELIVERY/DeliveryInfo.jsp#L109-L118
+ 
+     **택배기사 전용 페이지 예시이미지**
     ![배달 리스트 페이지](https://github.com/user-attachments/assets/b4dd7498-dfdc-453d-99e5-e621f019935e)
 
     
@@ -775,6 +777,8 @@ PROJECT3
      배송을 시작한 시간, 허브 도착시간, 허브 이름 , 허브에서 출발 시간, 목적지 도착시간을 전송
      https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/webapp/WEB-INF/views/DELIVERY/Fordelivery.jsp#L406-L501
      https://github.com/GwanhoYun/project_3_MediExpress/blob/043fd27d5c5c06e662b3538e78936258c275f7ee/src/main/java/org/hj/controller/DeliveryController.java#L75-L122
+ 
+     **배송시작 페이지 예시이미지**
      ![출발](https://github.com/user-attachments/assets/ebc6087b-1eea-474c-96e5-2da724489fc4)
      ![허브](https://github.com/user-attachments/assets/f96ab3ee-10cb-494d-8ab5-b52124cf7c32)
      ![배달 완](https://github.com/user-attachments/assets/c3b79f19-f0da-42c2-91e2-6b687f3e1b5c)
@@ -791,7 +795,8 @@ PROJECT3
      도착 기록이없고 배송중인 상태라면, 택배기사의 좌표값을 가져와 실시간 위치 확인 가능
      https://github.com/GwanhoYun/project_3_MediExpress/blob/26801f48c981862afd961f093d6a6537d20242e6/src/main/webapp/WEB-INF/views/boardDetail.jsp#L249-L310
      https://github.com/GwanhoYun/project_3_MediExpress/blob/26801f48c981862afd961f093d6a6537d20242e6/src/main/java/org/hj/controller/DeliveryController.java#L55-L63
-
+ 
+    **주문 상세보기 페이지 예시이미지**
      ![배송 현황 추적](https://github.com/user-attachments/assets/c2bdeb9e-8516-4991-8c5f-304e6122278d)
      ![택배기사 실시간 위치 확인](https://github.com/user-attachments/assets/e67de507-f65e-4a6b-ab33-cd7c6b662b57)
 
