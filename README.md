@@ -751,8 +751,10 @@ PROJECT3
   + 배송할 내용의 데이터를 가져와 리스트화
   + 배송 상태는 데이터베이스의 d_complete(배달 완료 여부)의 값이 null이면 미승인, false면 배송 시작 버튼, true일때는 배송완료가 출력.
   + 배송 시작 버튼을 누르면 해당 송장번호의 데이터를 가지고 페이지 이동
- 
-  + 배송 상태 출력 jsp 코드
+
+    d_complete 값을 가져오는 모델 boolean타입이 아닌 Boolean 타입으로 가져온다. (boolean타입은 null값 허용x)
+    https://github.com/GwanhoYun/project_3_MediExpress/blob/a8c2281561c6188f2cc7e3eeb34ddc8d35568d85/src/main/java/org/hj/model/DeliveryVO.java#L1-L12
+    배송 상태 출력 jsp 코드
     https://github.com/GwanhoYun/project_3_MediExpress/blob/fceb3bbb37b8a8359cf2e547fac15c422dfdd1e6/src/main/webapp/WEB-INF/views/DELIVERY/DeliveryInfo.jsp#L109-L118
 
 
