@@ -19,124 +19,125 @@
 - - - - -
 
 ```
-|   .classpath
-|   .project
-|   .springBeans
-|   pom.xml
-|
-+---.settings
-|       org.eclipse.core.resources.prefs
-|       org.eclipse.jdt.core.prefs
-|       org.eclipse.m2e.core.prefs
-|       org.eclipse.wst.common.component
-|       org.eclipse.wst.common.project.facet.core.xml
-|       org.eclipse.wst.validation.prefs
-|       org.springframework.ide.eclipse.beans.core.prefs
-|       org.springframework.ide.eclipse.core.prefs
-|
-+---src
-|   +---main
-|   |   +---java
-|   |   |   \---org
-|   |   |       \---hj
-|   |   |           +---controller
-|   |   |           |       HomeController.java
-|   |   |           |       Medi_BoardController.java
-|   |   |           |
-|   |   |           +---mapper
-|   |   |           |       Medi_BoardMapper.java
-|   |   |           |
-|   |   |           +---model
-|   |   |           |       Medi_BoardVO.java
-|   |   |           |
-|   |   |           \---service
-|   |   |                   Medi_BoardService.java
-|   |   |                   Medi_BoardServiceImpl.java
-|   |   |
-|   |   +---resources
-|   |   |   |   log4j.xml
-|   |   |   |
-|   |   |   +---META-INF
-|   |   |   \---org
-|   |   |       \---hj
-|   |   |           \---mapper
-|   |   |                   Medi_BoardMapper.xml
-|   |   |
-|   |   \---webapp
-|   |       +---resources
-|   |       |   +---css
-|   |       |   +---img
-|   |       |   \---js
-|   |       \---WEB-INF
-|   |           |   web.xml
-|   |           |
-|   |           +---classes
-|   |           +---spring
-|   |           |   |   root-context.xml
-|   |           |   |
-|   |           |   \---appServlet
-|   |           |           servlet-context.xml
-|   |           |
-|   |           \---views
-|   |                   mediProduct.jsp
-|   |                   Testfile.jsp
-|   |
-|   \---test
-|       +---java
-|       |   \---org
-|       |       \---hj
-|       |           +---controller
-|       |           \---dbtest
-|       |                   DBCPTest.java
-|       |                   JDBC.java
-|       |                   MyBatisTest.java
-|       |
-|       \---resources
-|               log4j.xml
-|
-\---target
-    +---classes
-    |   |   log4j.xml
-    |   |
-    |   \---org
-    |       \---hj
-    |           +---controller
-    |           |       HomeController.class
-    |           |       Medi_BoardController.class
-    |           |
-    |           +---mapper
-    |           |       Medi_BoardMapper.class
-    |           |       Medi_BoardMapper.xml
-    |           |
-    |           +---model
-    |           |       Medi_BoardVO.class
-    |           |
-    |           \---service
-    |                   Medi_BoardService.class
-    |                   Medi_BoardServiceImpl.class
-    |
-    +---m2e-wtp
-    |   \---web-resources
-    |       \---META-INF
-    |           |   MANIFEST.MF
-    |           |
-    |           \---maven
-    |               \---org.hj
-    |                   \---controller
-    |                           pom.properties
-    |                           pom.xml
-    |
-    \---test-classes
-        |   log4j.xml
-        |
-        \---org
-            \---hj
-                +---controller
-                \---dbtest
+
+SPRINGMEDI
+│  .classpath
+│  .project
+│  .springBeans
+│  pom.xml
+│
+├─.settings
+│      org.eclipse.core.resources.prefs
+│      org.eclipse.jdt.core.prefs
+│      org.eclipse.m2e.core.prefs
+│      org.eclipse.wst.common.component
+│      org.eclipse.wst.common.project.facet.core.xml
+│      org.eclipse.wst.validation.prefs
+│      org.springframework.ide.eclipse.beans.core.prefs
+│      org.springframework.ide.eclipse.core.prefs
+│
+├─src
+│  ├─main
+│  │  ├─java
+│  │  │  └─org
+│  │  │      └─hj
+│  │  │          ├─controller
+│  │  │          │      HomeController.java
+│  │  │          │      Medi_BoardController.java
+│  │  │          │
+│  │  │          ├─mapper
+│  │  │          │      Medi_BoardMapper.java
+│  │  │          │
+│  │  │          ├─model
+│  │  │          │      Medi_BoardVO.java
+│  │  │          │
+│  │  │          └─service
+│  │  │                  Medi_BoardService.java
+│  │  │                  Medi_BoardServiceImpl.java
+│  │  │
+│  │  ├─resources
+│  │  │  │  log4j.xml
+│  │  │  │
+│  │  │  ├─META-INF
+│  │  │  └─org
+│  │  │      └─hj
+│  │  │          └─mapper
+│  │  │                  Medi_BoardMapper.xml
+│  │  │
+│  │  └─webapp
+│  │      ├─resources
+│  │      │  ├─css
+│  │      │  ├─img
+│  │      │  └─js
+│  │      └─WEB-INF
+│  │          │  web.xml
+│  │          │
+│  │          ├─classes
+│  │          ├─spring
+│  │          │  │  root-context.xml
+│  │          │  │
+│  │          │  └─appServlet
+│  │          │          servlet-context.xml
+│  │          │
+│  │          └─views
+│  │                  mediProduct.jsp
+│  │                  Testfile.jsp
+│  │
+│  └─test
+│      ├─java
+│      │  └─org
+│      │      └─hj
+│      │          ├─controller
+│      │          └─dbtest
+│      │                  DBCPTest.java
+│      │                  JDBC.java
+│      │                  MyBatisTest.java
+│      │
+│      └─resources
+│              log4j.xml
+│
+└─target
+    ├─classes
+    │  │  log4j.xml
+    │  │
+    │  └─org
+    │      └─hj
+    │          ├─controller
+    │          │      HomeController.class
+    │          │      Medi_BoardController.class
+    │          │
+    │          ├─mapper
+    │          │      Medi_BoardMapper.class
+    │          │      Medi_BoardMapper.xml
+    │          │
+    │          ├─model
+    │          │      Medi_BoardVO.class
+    │          │
+    │          └─service
+    │                  Medi_BoardService.class
+    │                  Medi_BoardServiceImpl.class
+    │
+    ├─m2e-wtp
+    │  └─web-resources
+    │      └─META-INF
+    │          │  MANIFEST.MF
+    │          │
+    │          └─maven
+    │              └─org.hj
+    │                  └─controller
+    │                          pom.properties
+    │                          pom.xml
+    │
+    └─test-classes
+        │  log4j.xml
+        │
+        └─org
+            └─hj
+                ├─controller
+                └─dbtest
                         DBCPTest.class
                         JDBC.class
                         MyBatisTest.class
-
 
 ```
 - - - - -
