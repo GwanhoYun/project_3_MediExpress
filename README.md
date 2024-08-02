@@ -19,6 +19,10 @@
 
 ![order](https://github.com/user-attachments/assets/e56cd25a-b8a8-410b-9cab-c11ba34ee56f)
 
++ 장바구니 메뉴
+  
+![cart](https://github.com/user-attachments/assets/41cbc4c1-5129-4b17-b483-ccee59cfd211)
+
    
 💀실제 구현한 기능과 차이가 있을 수 있습니다.💀
 
