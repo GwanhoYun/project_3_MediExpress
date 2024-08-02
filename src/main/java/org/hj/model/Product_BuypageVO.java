@@ -5,8 +5,15 @@ public class Product_BuypageVO {
   private int productPrice;
   private int productCount;
   private int productId;
+  private String userId;
 
   // Getters and Setters
+  public String getUserId() {
+    return userId;
+  }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
   public String getProductName() { return productName; }
   public void setProductName(String productName) { this.productName = productName; }
   public int getProductPrice() { return productPrice; }

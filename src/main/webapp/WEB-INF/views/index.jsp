@@ -18,7 +18,7 @@
         <div class="header_top">
             <div class="header_top_width">
                 <div class="logo">
-                    <a href="#"><img src="/resources/img/logo.png" alt="logo"></a>
+                    <a href="/"><img src="/resources/img/logo.png" alt="logo"></a>
                 </div>
                 <div class="search">
                     <input type="text" placeholder="찾으시는 상품이 있으신가요?">

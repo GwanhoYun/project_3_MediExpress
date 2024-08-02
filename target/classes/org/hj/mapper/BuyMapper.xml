@@ -3,7 +3,16 @@
 
 <mapper namespace="org.hj.mapper.BuyMapper">
     <insert id="insertBuyData" parameterType="org.hj.model.BuyVO">
-         INSERT INTO public_schema.Product_shoppingBasket (Product_id, Product_name, Product_price, Product_count, Product_userId)
-        VALUES (#{id}, #{name}, #{price}, #{count}, #{userId})
+        INSERT INTO public_schema.Product_shoppingBasket (Product_name, Product_price, Product_count, Product_id, Product_userId,Product_Basket)
+        VALUES (#{name}, #{price}, #{count}, #{id}, #{userId},0)
+    </insert>
+    
+        <insert id="insertPaymentData" parameterType="org.hj.model.PaymentVO">
+        INSERT INTO public_schema.Product_shoppingBasket (Product_name, Product_price, Product_count, Product_id, Product_userId,Product_Basket)
+        VALUES (#{name}, #{price}, #{count}, #{id}, #{userId},1)
     </insert>
 </mapper>
+
+
+
+

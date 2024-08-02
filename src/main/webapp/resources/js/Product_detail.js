@@ -137,13 +137,24 @@ function gatherCartData() {
 
     return cartItems;
 }
+function loginplz(){
+	alert("로그인 해주세요!");
+}
 
-function buyNow() {
-    const cartItems = gatherCartData();
+
+
+//결제 화면으로 이동
+function payment(){
+	const cartItems = gatherCartData();
+
+    // 로그인 사용자 ID를 요청 데이터에 추가
+    cartItems.forEach(item => {
+        item.userId = loginUserId;
+    });
 
     console.log("Request Payload:", cartItems); // 요청 데이터 확인
 
-    fetch('/buyNow', {
+    fetch('/paymentNow', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -152,7 +163,9 @@ function buyNow() {
     })
     .then(response => {
         if (response.ok) {
-            window.location.href = '/productBuyPage';
+
+                window.location.href = '/productpayment'; // 결제 페이지로 이동
+
         } else {
             response.text().then(text => {
                 console.error('Error:', text);
@@ -165,4 +178,48 @@ function buyNow() {
         alert('구매 처리 중 오류가 발생했습니다.');
     });
 }
+
+
+//-------------------------------------------------------------------------------------
+
+function shoppingBasket() {
+    const cartItems = gatherCartData();
+
+    // 로그인 사용자 ID를 요청 데이터에 추가
+    cartItems.forEach(item => {
+        item.userId = loginUserId;
+    });
+
+    console.log("Request Payload:", cartItems); // 요청 데이터 확인
+
+    fetch('/buyNow', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cartItems)
+    })
+    .then(response => {
+        if (response.ok) {
+            const check = confirm("장바구니에 상품을 담았습니다. 장바구니 페이지로 이동하시겠습니까?");
+            if (check) {
+                window.location.href = '/productBuyPage'; // 장바구니 페이지로 이동
+            } else {
+                location.reload(true); // 현재 페이지 새로고침
+            }
+        } else {
+            response.text().then(text => {
+                console.error('Error:', text);
+                alert('구매 처리 중 오류가 발생했습니다.');
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('구매 처리 중 오류가 발생했습니다.');
+    });
+}
+
+
+
 

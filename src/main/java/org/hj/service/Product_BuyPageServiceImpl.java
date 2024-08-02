@@ -10,9 +10,12 @@ import java.util.List;
 public class Product_BuyPageServiceImpl implements Product_BuyPageService{
   @Autowired
   private Product_BuyPageMapper productMapper;
-  
-  @Override
-  public List<Product_BuypageVO> getProductList() {
-      return productMapper.getProductList();
+
+  public List<Product_BuypageVO> getProductListByUserId(String userId) {
+      return productMapper.getProductList(userId);
   }
+  
+  public List<Product_BuypageVO> getPaymentListByUserId(String userId) {
+    return productMapper.getPaymentList(userId);
+}
 }

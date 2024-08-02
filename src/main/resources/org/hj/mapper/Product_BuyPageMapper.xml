@@ -5,10 +5,28 @@
   
 <mapper namespace="org.hj.mapper.Product_BuyPageMapper">
     <select id="getProductList" resultType="org.hj.model.Product_BuypageVO">
-        SELECT product_name AS productName,
-               product_price AS productPrice,
-               product_count AS productCount,
-               product_id AS productId
-        FROM public_schema.Product_shoppingBasket
+    SELECT 
+    product_name AS productName,
+    product_price AS productPrice,
+    product_count AS productCount,
+    product_id AS productId
+    FROM 
+    public_schema.Product_shoppingBasket
+    WHERE 
+    Product_userId = #{userId}
+    AND Product_Basket = 0
+    </select>
+    
+       <select id="getPaymentList" resultType="org.hj.model.Product_BuypageVO">
+    SELECT 
+    product_name AS productName,
+    product_price AS productPrice,
+    product_count AS productCount,
+    product_id AS productId
+    FROM 
+    public_schema.Product_shoppingBasket
+    WHERE 
+    Product_userId = #{userId}
+    AND Product_Basket = 1
     </select>
 </mapper>
