@@ -178,7 +178,7 @@ th {
       <script>
       
       //가져온 송장 번호
-      var d_no = ${userD_no} + 10
+      var d_no = ${userD_no} 
       // 배송 출발 여부를 저장하는 변수
       var deliveryStarted = false; 
       // 배송 도착 여부를 저장하는 변수

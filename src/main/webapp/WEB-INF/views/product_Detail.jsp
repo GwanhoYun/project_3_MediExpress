@@ -311,13 +311,13 @@
                 <div class="recommend_item">
                     <a href="#">
                         <div>
-                            <img src="/resources/img/101.jpg"  alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
+                            <img src="/resources/img/101.jpg"  alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';"style=" width: 300px; height: auto">
                         </div>
                         <div>
                             <p>거즈</p>
                         </div>
                         <div>
-                            <p>0</p>
+                            <p>1000</p>
                             <p>원</p>
                         </div>
                     </a>
@@ -325,13 +325,13 @@
                 <div class="recommend_item">
                     <a href="#">
                         <div>
-                            <img src="#" alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
+                            <img src="/resources/img/110.jpg" alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';"style=" width: 300px; height: auto">
                         </div>
                         <div>
-                            <p>상품명</p>
+                            <p>제트메디컬 석션기 장우</p>
                         </div>
                         <div>
-                            <p>0</p>
+                            <p>298,000</p>
                             <p>원</p>
                         </div>
                     </a>
@@ -339,13 +339,13 @@
                 <div class="recommend_item">
                     <a href="#">
                         <div>
-                            <img src="#" alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
+                            <img src="/resources/img/103.jpg" alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';" style=" width: 300px; height: auto">
                         </div>
                         <div>
-                            <p>상품명</p>
+                            <p>제트 메디컬 1회용 주사기 유침</p>
                         </div>
                         <div>
-                            <p>0</p>
+                            <p>6100</p>
                             <p>원</p>
                         </div>
                     </a>
@@ -353,13 +353,13 @@
                 <div class="recommend_item">
                     <a href="#">
                         <div>
-                            <img src="#" alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';">
+                            <img src="/resources/img/105.jpg" alt="관련상품" onerror="this.onerror=null; this.src='/resources/img/imgLoading.png';" style=" width: 300px; height: auto">
                         </div>
                         <div>
-                            <p>상품명</p>
+                            <p>제트 제약 트리암시놀론주사 1ml(40mg)</p>
                         </div>
                         <div>
-                            <p>0</p>
+                            <p>21000</p>
                             <p>원</p>
                         </div>
                     </a>
