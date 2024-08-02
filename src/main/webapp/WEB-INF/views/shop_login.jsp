@@ -6,37 +6,38 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <link rel="stylesheet" href="/resources/css/shop_login.css"><!-- 외부 CSS 파일 링크 -->
-<style>
-    /* 네이버 로그인 버튼 크기 조정 */
-    #naverIdLogin img {
-        width: 100px;  /* 원하는 너비로 설정 */
-        height: auto;  /* 자동 높이 설정 */
-    }
-</style>
 </head>
 <body>
     <header>
         <div class="header_top">
             <div class="header_top_width">
                 <div class="logo">
-                    <a href="#"><img src="img/logo.png" alt="logo"></a>
+                    <a href="/"><img src="/resources/img/logo.png" alt="logo"></a>
                 </div>
                 <div class="search">
                     <input type="text" placeholder="찾으시는 상품이 있으신가요?">
                     <div class="search_icon">
-                        <img src="img/search_icon.png">
+                        <img src="/resources/img/search_icon.png">
                     </div>
                 </div>
                 <div class="side_menu_top">
-                    <a href="#">로그인</a>
-                    <a href="#">회원가입</a>
-                    <a href="#">마이페이지</a>
-                </div>
+        <c:choose>
+            <c:when test="${not empty sessionScope.loginUser}">
+                <p>${sessionScope.loginUser.name}님 환영합니다!</p> <!-- 로그인된 사용자 이름 출력 -->
+                <a href="${pageContext.request.contextPath}/logout">로그아웃</a>
+                <a href="${pageContext.request.contextPath}/boards/all">마이페이지</a>
+            </c:when>
+            <c:otherwise>
+                <a href="${pageContext.request.contextPath}/login">로그인</a>
+                <a href="${pageContext.request.contextPath}/register">회원가입</a>
+            </c:otherwise>
+        </c:choose>
+    </div>
             </div>
         </div>
         <div class="header_bottom">
             <div class="header_bottom_width">
-                <div class="all_menu_container" onclick="activateAllMenu()">
+                <div class="all_menu_container">
                     <div class="menu_icon">
                         <div></div>
                         <div></div>
@@ -46,7 +47,7 @@
                 </div>
                 <div class="all_menu_list">
                     <div class="all_menu_list_top_width">
-                        <div class="all_menu_controler" onclick="activateAllMenu()">
+                        <div class="all_menu_controler">
                             <div class="menu_icon_2">
                                 <div></div>
                                 <div></div>

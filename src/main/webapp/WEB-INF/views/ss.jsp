@@ -90,8 +90,8 @@
         <div class="customer_info">
             <h4>고객 정보</h4>
             <p>수주 번호: ${board.o_no}</p>
-            <p>회원 아이디 :${loginUser.id} </p>
-            <p>회원 이름: ${loginUser.name} </p>
+            <p>회원 아이디 :${sessionScope.loginUser.id} </p>
+            <p>회원 이름: ${sessionScope.loginUser.name} </p>
         </div>
         <div class="order_info">
             <h4>주문 정보</h4>
@@ -121,6 +121,5 @@
         </div>
         <button class="print_button" onclick="printPage()">인쇄</button>
     </div>
-    <project3-footer></project3-footer>
 </body>
 </html>

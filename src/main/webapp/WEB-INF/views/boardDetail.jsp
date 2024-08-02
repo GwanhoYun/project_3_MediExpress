@@ -171,7 +171,6 @@ th {
 		</div>
 		<a href="/boards/ss?o_no=${board.o_no}&p_no=${board.p_no}">거래명세표</a>
 		<button class="review-button" onclick="writeReview()">리뷰 작성</button>
-		<project3-footer></project3-footer>
 	</div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="/resources/js/project3_footer_components.js" defer></script>
