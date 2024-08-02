@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePricesAndPoints();
 });
 
+
+
 // 가격과 포인트를 업데이트하는 함수
 function updatePricesAndPoints() {
     // 총 물건 가격을 숫자로 가져옵니다
@@ -126,3 +128,72 @@ function updatePricesAndPoints() {
         totalSavingPointElement.textContent = formatNumber(savingPointValue);
     }
 }
+
+//총 갯수를 업데이트 해주는 함수
+document.addEventListener("DOMContentLoaded", function() {
+    var productCounts = document.querySelectorAll(".product-count");
+    var totalCount = 0;
+
+    productCounts.forEach(function(countElement) {
+        var count = parseInt(countElement.textContent);
+        totalCount += count;
+    });
+
+    document.getElementById("total-count").textContent = totalCount;
+});
+var productInfoElement = document.querySelector("#product-info");
+
+var productId = productInfoElement.getAttribute("data-id");
+
+//주문 한 데이터를 orderlist에 보내는 작업
+document.querySelector("#submitOrder").addEventListener("click", function() {
+    // 데이터 수집
+    var orderName = document.querySelector(".order_name").value;
+    var orderCallNum = productInfoElement.getAttribute("data-id");
+    var receiver = document.querySelector(".receiver").value;
+    var receiverCallNum = document.querySelector(".receiver_callNum").value;
+    var address = document.querySelector(".address").value;
+    var totalQuantity = document.getElementById("total-count").textContent;
+    var totalPrice = document.querySelector(".total_price").textContent;
+    var orderDate = new Date().toISOString().slice(0, 10);
+    var orderId = Math.floor(1000 + Math.random() * 9000); //4자리 숫자로 랜덤한 값을 수주번호에 넣음
+
+ // 데이터 객체 생성
+    var orderData = {
+    	    o_id: orderName, // 주문자 이름 (여기서 `orderName`이 주문자 ID로 사용됨)
+    	    o_address: address, // 수령인 주소
+    	    p_no: orderCallNum, // 서버에서 설정할 수 있는 기본값 (여기서는 0으로 설정, 서버에서 적절한 값으로 업데이트됨)
+    	    o_num: parseInt(totalQuantity, 10), // 총 수량 (정수형으로 변환)
+    	    o_Total: totalPrice, // 총 가격
+    	    o_date: orderDate, // 주문 날짜 (ISO 문자열 형식)
+    	    o_no: orderId // 주문 ID (여기서 `orderId`가 주문 번호로 사용됨)
+    	};
+
+
+    // fetch API를 사용하여 데이터 전송
+    fetch('/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            window.location.href = "/Product_orderEndPage";
+        } else {
+            alert("Order failed: " + data.message);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("An error occurred: " + error.message);
+    });
+});
+

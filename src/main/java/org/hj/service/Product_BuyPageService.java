@@ -4,5 +4,6 @@ import java.util.List;
 import org.hj.model.Product_BuypageVO;
 
 public interface Product_BuyPageService {
-  List<Product_BuypageVO> getProductList();
+  public List<Product_BuypageVO> getProductListByUserId(String userId);
+  public List<Product_BuypageVO> getPaymentListByUserId(String userId);
 }

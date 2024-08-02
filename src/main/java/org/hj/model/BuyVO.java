@@ -6,7 +6,17 @@ public class BuyVO {
   private int price;
   private int count;
   private String userId;
+  private int basket;
   
+  
+
+  
+  public int getBasket() {
+    return basket;
+  }
+  public void setBasket(int basket) {
+    this.basket = basket;
+  }
   public String getId() {
     return id;
   }

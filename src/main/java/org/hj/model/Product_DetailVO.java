@@ -6,9 +6,13 @@ public class Product_DetailVO {
     private int priceDetail;
 
     // Getters and Setters
+    
+    
+
+
     public int getNoDetail() {
-        return noDetail;
-    }
+      return noDetail;
+  }
 
     public void setNoDetail(int noDetail) {
         this.noDetail = noDetail;
