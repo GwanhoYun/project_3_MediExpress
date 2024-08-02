@@ -9,7 +9,9 @@
 <title>Medi Express - 빠른 배송 안전한 의료용품</title>
 <link href="img/titleIcon.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="/resources/css/mypage.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/index.css" type="text/css">
 <script src="component/project3_header_components.js" defer></script>
+
 <script src="/resources/js/project3_footer_components.js" defer></script>
 </head>
 <body>
