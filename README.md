@@ -808,8 +808,22 @@ PROJECT3
   ## 구현 예시 (백엔드)
 
 **강동현** 
+   **병원 물류 페이지**
+https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/java/org/hj/controller/Medi_BoardController.java#L30C2-L35C6
+물류 db에서 값을 들고 오기 위한 컨트롤러 리스트로 표현하기 위해 List 타입의 변수로 받음
+![image](https://github.com/user-attachments/assets/c56045c7-917d-4065-9a43-8d5c17455296)
 
-
+     **병원 물류 관리 - 삭제**
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L2C3-L37C5
+     삭제 버튼을 누르면 onclick 으로 인하여 toggleDeleteMode() 이름의 함수 실행
+     -> 이 함수는 수정이라는 행을 찾아서 만약 "수정" 이라는 텍스트를 띄우고 있다면 "삭제" 라는 텍스트로 변경 후 삭제모드로 전환
+      삭제는 ajax를 이용하여 성공 및 삭제 여부를 판단 -> 삭제모드에서 한번 더 버튼을 누르게 되면 수정모드로 변경
+       
+       **병원 물류 관리 - 리스트 추가**
+https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/java/org/hj/controller/Medi_BoardController.java#L53C5-L66C6
+       추가된 리스트 함수 저장 컨트롤러
+        **병원 물류 관리 - 리스트 수정**
+        
 - - - - - 
 
 - - - - -
