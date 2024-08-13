@@ -807,23 +807,23 @@ PROJECT3
 - - - - -
   ## 구현 예시 (백엔드)
 
-🌹 **강동현** 🌹
+🌹 강동현 🌹
    **병원 물류 페이지**
 https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/java/org/hj/controller/Medi_BoardController.java#L30-L35
 물류 db에서 값을 들고 오기 위한 컨트롤러 리스트로 표현하기 위해 List 타입의 변수로 받음
 ![image](https://github.com/user-attachments/assets/c56045c7-917d-4065-9a43-8d5c17455296)
 
-     **병원 물류 관리 - 삭제**
+    🌹병원 물류 관리 - 삭제🌹
      https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L2-L38
      삭제 버튼을 누르면 onclick 으로 인하여 toggleDeleteMode() 이름의 함수 실행
      -> 이 함수는 수정이라는 행을 찾아서 만약 "수정" 이라는 텍스트를 띄우고 있다면 "삭제" 라는 텍스트로 변경 후 삭제모드로 전환
       삭제는 ajax를 이용하여 성공 및 삭제 여부를 판단 -> 삭제모드에서 한번 더 버튼을 누르게 되면 수정모드로 변경
        
-       **병원 물류 관리 - 리스트 추가**
+       🌹병원 물류 관리 - 리스트 추가🌹
 https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/java/org/hj/controller/Medi_BoardController.java#L53-L66
        추가된 리스트 함수 저장 컨트롤러
        
-        **병원 물류 관리 - 리스트 수정**
+       🌹병원 물류 관리 - 리스트 수정🌹
         버튼을 누르면 버튼을 누른 행에 대해서 모든 text창을 input 창으로 변경. 이때 날짜를 기입하는 날짜 칸은 date로 수정, 수정 버튼은 저장버튼으로 변경
         https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L68-L97
 
@@ -836,7 +836,7 @@ https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af
         값이 Service 문을 타고 Mapper로 이동 하여 SQL문을 활용하여 저장
         https://github.com/GwanhoYun/project_3_MediExpress/blob/7d12b797c8de3a799f992f3785aaf83088a69548/src/main/resources/org/hj/mapper/Medi_BoardMapper.xml#L40-L49
 
-    **물품 주문 페이지**
+    🌹물품 주문 페이지 🌹
     이미지를 데이터베이스에 저장하여 값을 가져오는건 라즈베리파이에 무리가 있다고 판단 -> 컴퓨터에 저장되어있는 이미지 이름을 제품 번호로 통일 시킨 후 이미지 출력
     또 제품 상세 페이지 이동은 get방식으로 제품 번호를 전송하여 해당 제품이 있는 url에 접근 (이때 제품 각각의 페이지를 제작 한것이 아닌 데이터 베이스에 있는 값들을 url에 맞게 불러오는 형식)
     https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/WEB-INF/views/index.jsp#L314-L324
