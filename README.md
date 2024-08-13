@@ -807,7 +807,7 @@ PROJECT3
 - - - - -
   ## 구현 예시 (백엔드)
 
-**강동현** 
+🌹 **강동현** 🌹
    **병원 물류 페이지**
 https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/java/org/hj/controller/Medi_BoardController.java#L30-L35
 물류 db에서 값을 들고 오기 위한 컨트롤러 리스트로 표현하기 위해 List 타입의 변수로 받음
@@ -822,8 +822,47 @@ https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af
        **병원 물류 관리 - 리스트 추가**
 https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/java/org/hj/controller/Medi_BoardController.java#L53-L66
        추가된 리스트 함수 저장 컨트롤러
+       
         **병원 물류 관리 - 리스트 수정**
-        
+        버튼을 누르면 버튼을 누른 행에 대해서 모든 text창을 input 창으로 변경. 이때 날짜를 기입하는 날짜 칸은 date로 수정, 수정 버튼은 저장버튼으로 변경
+        https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L68-L97
+
+        버튼을 눌러 모든 text -> input으로 변경 하였고 저장 버튼을 누르게 되면 Controller에 /saveMediProducts 라는 이름으로 값 전달
+        https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L131-L159
+
+        saveMediProduct는 try-catch문을 사용하여 값이 옳바르게 이동되면 Service로 값을 보내고 아니면 애러 메세지를 출력함
+        https://github.com/GwanhoYun/project_3_MediExpress/blob/7d12b797c8de3a799f992f3785aaf83088a69548/src/main/java/org/hj/controller/Medi_BoardController.java#L53-L67
+
+        값이 Service 문을 타고 Mapper로 이동 하여 SQL문을 활용하여 저장
+        https://github.com/GwanhoYun/project_3_MediExpress/blob/7d12b797c8de3a799f992f3785aaf83088a69548/src/main/resources/org/hj/mapper/Medi_BoardMapper.xml#L40-L49
+
+    **물품 주문 페이지**
+    이미지를 데이터베이스에 저장하여 값을 가져오는건 라즈베리파이에 무리가 있다고 판단 -> 컴퓨터에 저장되어있는 이미지 이름을 제품 번호로 통일 시킨 후 이미지 출력
+    또 제품 상세 페이지 이동은 get방식으로 제품 번호를 전송하여 해당 제품이 있는 url에 접근 (이때 제품 각각의 페이지를 제작 한것이 아닌 데이터 베이스에 있는 값들을 url에 맞게 불러오는 형식)
+    https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/WEB-INF/views/index.jsp#L314-L324
+
+    세션에 아이디 값이 있으면 장바구니로 이동 가능한 함수 실행 만약 세선에 아이디 값이 없으면 애러 표시를 통해 로그인 유도
+    https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/WEB-INF/views/product_Detail.jsp#L279-L298
+    ![image](https://github.com/user-attachments/assets/0d4700b9-38c7-423e-a70d-2685969bc4d9)
+    
+
+    옵션은 제품 상세 페이지에 맞는 제품 코드를 들고와 다른 데이터 베이스에 저장되어있는 추가옵션을 부름
+    https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/WEB-INF/views/product_Detail.jsp#L254-L262
+
+    만약 세션에 로그인 값이 있으면 선택한 제품,갯수,상세정보 등을 장바구니 페이지로 이동
+    이때 장바구니는 Product_shoppingBasket이름의 db에 Product_Basket = 0 으로 저장됨
+    https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/WEB-INF/views/product_Detail.jsp#L284-L298
+    이렇게 되면 장바구니를 누르면 값이 나오지만 결제 페이지로 넘어가게 되면 값이 나오지 않음
+    ![image](https://github.com/user-attachments/assets/d12b3809-eb7b-4b3f-8a7e-2da82be25f79)
+    위 사진은 장바구니 페이지
+
+    
+
+    또 장바구니에서 장바구니에 담은 제품들을 결제페이지로 넘기면  Product_Basket = 1 로 변하면서  Product_Basket=1 인 값들을 전부 불러옴
+    ![image](https://github.com/user-attachments/assets/b0756ec3-c3d9-482c-b429-d7f3c5604bcb)
+
+    이렇게 결제가 완료 되면 orderList라는 공용 db로 값이 넘어가 다른 팀에서 작업 하는 페이지로 결제한 제품들이 넘어가게 됨.
+    
 - - - - - 
 
 - - - - -
