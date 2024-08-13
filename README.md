@@ -823,18 +823,18 @@ https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af
 https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/java/org/hj/controller/Medi_BoardController.java#L53-L66
        추가된 리스트 함수 저장 컨트롤러
        
-       🌹병원 물류 관리 - 리스트 수정🌹
-        버튼을 누르면 버튼을 누른 행에 대해서 모든 text창을 input 창으로 변경. 이때 날짜를 기입하는 날짜 칸은 date로 수정, 수정 버튼은 저장버튼으로 변경
-        https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L68-L97
+   🌹병원 물류 관리 - 리스트 수정🌹
+    버튼을 누르면 버튼을 누른 행에 대해서 모든 text창을 input 창으로 변경. 이때 날짜를 기입하는 날짜 칸은 date로 수정, 수정 버튼은 저장버튼으로 변경
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L68-L97
 
-        버튼을 눌러 모든 text -> input으로 변경 하였고 저장 버튼을 누르게 되면 Controller에 /saveMediProducts 라는 이름으로 값 전달
-        https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L131-L159
+     버튼을 눌러 모든 text -> input으로 변경 하였고 저장 버튼을 누르게 되면 Controller에 /saveMediProducts 라는 이름으로 값 전달
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/cff23f89576071d1455465af9b75816690029333/src/main/webapp/resources/js/medi_Product.js#L131-L159
 
-        saveMediProduct는 try-catch문을 사용하여 값이 옳바르게 이동되면 Service로 값을 보내고 아니면 애러 메세지를 출력함
-        https://github.com/GwanhoYun/project_3_MediExpress/blob/7d12b797c8de3a799f992f3785aaf83088a69548/src/main/java/org/hj/controller/Medi_BoardController.java#L53-L67
+    saveMediProduct는 try-catch문을 사용하여 값이 옳바르게 이동되면 Service로 값을 보내고 아니면 애러 메세지를 출력함
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/7d12b797c8de3a799f992f3785aaf83088a69548/src/main/java/org/hj/controller/Medi_BoardController.java#L53-L67
 
-        값이 Service 문을 타고 Mapper로 이동 하여 SQL문을 활용하여 저장
-        https://github.com/GwanhoYun/project_3_MediExpress/blob/7d12b797c8de3a799f992f3785aaf83088a69548/src/main/resources/org/hj/mapper/Medi_BoardMapper.xml#L40-L49
+     값이 Service 문을 타고 Mapper로 이동 하여 SQL문을 활용하여 저장
+     https://github.com/GwanhoYun/project_3_MediExpress/blob/7d12b797c8de3a799f992f3785aaf83088a69548/src/main/resources/org/hj/mapper/Medi_BoardMapper.xml#L40-L49
 
     🌹물품 주문 페이지 🌹
     이미지를 데이터베이스에 저장하여 값을 가져오는건 라즈베리파이에 무리가 있다고 판단 -> 컴퓨터에 저장되어있는 이미지 이름을 제품 번호로 통일 시킨 후 이미지 출력
